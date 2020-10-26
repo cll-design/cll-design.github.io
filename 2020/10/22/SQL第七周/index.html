@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>SQL第七周 | cll-design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SQL 对大小写不敏感 一些重要的SQL语句 SELECT - 从数据库中提取数据UPDATE - 更新数据库中的数据DELETE - 从数据库中删除数据INSERT INTO - 向数据库中插入新数据CREATE DATABASE - 创建新数据库ALTER DATABASE - 修改数据库CREATE TABLE - 创建新表ALTER TABLE - 变更（改变）数据库表DROP TABLE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL第七周">
+<meta property="og:url" content="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/index.html">
+<meta property="og:site_name" content="cll-design">
+<meta property="og:description" content="SQL 对大小写不敏感 一些重要的SQL语句 SELECT - 从数据库中提取数据UPDATE - 更新数据库中的数据DELETE - 从数据库中删除数据INSERT INTO - 向数据库中插入新数据CREATE DATABASE - 创建新数据库ALTER DATABASE - 修改数据库CREATE TABLE - 创建新表ALTER TABLE - 变更（改变）数据库表DROP TABLE">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-22T03:00:36.312Z">
+<meta property="article:modified_time" content="2020-10-22T13:41:04.980Z">
+<meta property="article:author" content="cll-design">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="cll-design" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">cll-design</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SQL第七周" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" class="article-date">
+  <time datetime="2020-10-22T03:00:36.312Z" itemprop="datePublished">2020-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SQL第七周
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SQL 对大小写不敏感</p>
+<p>一些重要的SQL语句</p>
+<p>SELECT - 从数据库中提取数据<br>UPDATE - 更新数据库中的数据<br>DELETE - 从数据库中删除数据<br>INSERT INTO - 向数据库中插入新数据<br>CREATE DATABASE - 创建新数据库<br>ALTER DATABASE - 修改数据库<br>CREATE TABLE - 创建新表<br>ALTER TABLE - 变更（改变）数据库表<br>DROP TABLE - 删除表<br>CREATE INDEX - 创建索引（搜索键）<br>DROP INDEX - 删除索引</p>
+<p>SELECT 语句用于从数据库中选取数据</p>
+<p>DISTINCT 关键词用于返回唯一不同的值</p>
+<p>SQL SELECT DISTINCT 语法<br>SELECT DISTINCT column_name,column_name<br>FROM table_name;</p>
+<p>WHERE 子句用于提取那些满足指定条件的记录</p>
+<p>SQL WHERE 语法<br>SELECT column_name,column_name<br>FROM table_name<br>WHERE column_name operator value;</p>
+<p>eg：SELECT * FROM Websites WHERE country=’CN’;</p>
+<p>SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）</p>
+<p>在上个实例中 ‘CN’ 文本字段使用了单引号</p>
+<p>如果是数值字段，不要使用引号</p>
+<p>eg：SELECT * FROM Websites WHERE id=1;</p>
+<p>下面的运算符可以在 WHERE 子句中使用：</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=</td>
+<td align="left">等于</td>
+</tr>
+<tr>
+<td align="left">&lt;&gt;</td>
+<td align="left">不等于。<strong>注释：</strong>在 SQL 的一些版本中，该操作符可被写成 !=</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">大于</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">小于</td>
+</tr>
+<tr>
+<td align="left">&gt;=</td>
+<td align="left">大于等于</td>
+</tr>
+<tr>
+<td align="left">&lt;=</td>
+<td align="left">小于等于</td>
+</tr>
+<tr>
+<td align="left">BETWEEN</td>
+<td align="left">在某个范围内</td>
+</tr>
+<tr>
+<td align="left">LIKE</td>
+<td align="left">搜索某种模式</td>
+</tr>
+<tr>
+<td align="left">IN</td>
+<td align="left">指定针对某个列的多个可能值</td>
+</tr>
+</tbody></table>
+<p>AND &amp; OR 运算符用于基于一个以上的条件对记录进行过滤</p>
+<p>eg：SELECT * FROM Websites<br>WHERE country=’CN’<br>AND alexa &gt; 50;</p>
+<p>SELECT * FROM Websites<br>WHERE country=’USA’<br>OR country=’CN’;</p>
+<p>可以把 AND 和 OR 结合起来（使用圆括号来组成复杂的表达式）</p>
+<p>SELECT * FROM Websites<br>WHERE alexa &gt; 15<br>AND (country=’CN’ OR country=’USA’);</p>
+<p>ORDER BY 关键字用于对结果集进行排序</p>
+<p>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序</p>
+<p>ORDER BY 关键字默认按照升序对记录进行排序。如果需要按照降序对记录进行排序，您可以使用 DESC 关键字</p>
+<p>SQL ORDER BY 语法<br>SELECT column_name,column_name<br>FROM table_name<br>ORDER BY column_name,column_name ASC|DESC;</p>
+<p>egSELECT * FROM Websites<br>ORDER BY alexa;</p>
+<p>SELECT * FROM Websites<br>ORDER BY alexa DESC;（降序）</p>
+<p>SELECT * FROM Websites<br>ORDER BY country,alexa;（多列）</p>
+<p>INSERT INTO 语句用于向表中插入新记录</p>
+<p>INSERT INTO 语句可以有两种编写形式</p>
+<p>第一种形式无需指定要插入数据的列名，只需提供被插入的值即可：</p>
+<p>INSERT INTO table_name<br>VALUES (value1,value2,value3,…);</p>
+<p>egINSERT INTO Websites (name, url, alexa, country)<br>VALUES (‘百度’,’<a target="_blank" rel="noopener" href="https://www.baidu.com/&#39;,&#39;4&#39;,&#39;CN&#39;">https://www.baidu.com/&#39;,&#39;4&#39;,&#39;CN&#39;</a>);</p>
+<p>第二种形式需要指定列名及被插入的值：</p>
+<p>INSERT INTO table_name (column1,column2,column3,…)<br>VALUES (value1,value2,value3,…);</p>
+<p>UPDATE 语句用于更新表中已存在的记录</p>
+<p>SQL UPDATE 语法<br>UPDATE table_name<br>SET column1=value1,column2=value2,…<br>WHERE some_column=some_value;</p>
+<p>eg：UPDATE Websites<br>SET alexa=’2’, country=’CN’<br>WHERE name=’facebook’;</p>
+<p>ps：在更新记录时要格外小心！在上面的实例中，如果省略了 WHERE 子句将：</p>
+<p>UPDATE Websites<br>SET alexa=’5000’, country=’USA’<br>执行以上代码会将 Websites 表中所有数据的 alexa 改为 5000，country 改为 USA。</p>
+<p>执行没有 WHERE 子句的 UPDATE 要慎重！！！</p>
+<p>DELETE 语句用于删除表中的行</p>
+<p>SQL DELETE 语法<br>DELETE FROM table_name<br>WHERE some_column=some_value;</p>
+<p>eg：DELETE FROM Websites<br>WHERE name=’Facebook’ AND country=’USA’;</p>
+<p>可以在不删除表的情况下，删除表中所有的行。这意味着表结构、属性、索引将保持不变：</p>
+<p>DELETE FROM table_name;</p>
+<p>或</p>
+<p>DELETE * FROM table_name;<br>注释：在删除记录时要格外小心！因为不能重来！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckgqjrwso00024cwt4zvl9wvy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">两天一夜（未完待续...)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/">SQL第七周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/">两天一夜（未完待续...)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/20/C%E8%AF%AD%E8%A8%80/">C语言第七周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/17/PHP%E5%8F%98%E9%87%8F/">PHP第一周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/">PHP有关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 cll-design<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
