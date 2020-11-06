@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>SQL第九周 | cll-design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MySQL 语法版（规定的需要返回值的数目）SELECT column_name(s)FROM table_nameLIMIT number;（取头number条数据） 此外，以下操作在 Microsoft SQL Server 数据库中可执行 SELECT TOP 50 PERCENT * FROM Websites; SQL LIKE操作符 LIKE 操作符用于在 WHERE 子句中搜索列中的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL第九周">
+<meta property="og:url" content="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/index.html">
+<meta property="og:site_name" content="cll-design">
+<meta property="og:description" content="MySQL 语法版（规定的需要返回值的数目）SELECT column_name(s)FROM table_nameLIMIT number;（取头number条数据） 此外，以下操作在 Microsoft SQL Server 数据库中可执行 SELECT TOP 50 PERCENT * FROM Websites; SQL LIKE操作符 LIKE 操作符用于在 WHERE 子句中搜索列中的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-06T14:19:56.718Z">
+<meta property="article:modified_time" content="2020-11-06T14:36:44.539Z">
+<meta property="article:author" content="cll-design">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="cll-design" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">cll-design</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SQL第九周" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" class="article-date">
+  <time datetime="2020-11-06T14:19:56.718Z" itemprop="datePublished">2020-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SQL第九周
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySQL 语法版（规定的需要返回值的数目）<br>SELECT column_name(s)<br>FROM table_name<br>LIMIT number;（取头number条数据）</p>
+<p>此外，以下操作在 Microsoft SQL Server 数据库中可执行</p>
+<p>SELECT TOP 50 PERCENT * FROM Websites;</p>
+<p>SQL LIKE操作符</p>
+<p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。</p>
+<p>SQL LIKE语法</p>
+<p>SELECT <em>column_name(s)</em><br>FROM <em>table_name</em><br>WHERE <em>column_name</em> LIKE <em>pattern</em>;</p>
+<p>%g：以g结尾</p>
+<p>g%：以g开头</p>
+<p>%g%包含g</p>
+<p>%g_：倒数第二个是g</p>
+<p>eg：SELECT * FROM Websites<br>WHERE name LIKE ‘G_o_le’;</p>
+<p>SQL通配符</p>
+<table>
+<thead>
+<tr>
+<th align="left">通配符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">%</td>
+<td align="left">替代 0 个或多个字符</td>
+</tr>
+<tr>
+<td align="left">_</td>
+<td align="left">替代一个字符</td>
+</tr>
+<tr>
+<td align="left">[<em>charlist</em>]</td>
+<td align="left">字符列中的任何单一字符</td>
+</tr>
+<tr>
+<td align="left">[^<em>charlist</em>] 或 [!<em>charlist</em>]</td>
+<td align="left">不在字符列中的任何单一字符</td>
+</tr>
+</tbody></table>
+<p>使用 SQL [charlist] 通配符<br>MySQL 中使用 REGEXP 或 NOT REGEXP 运算符 (或 RLIKE 和 NOT RLIKE) 来操作正则表达式。</p>
+<p>下面的 SQL 语句选取 name 以 “G”、”F” 或 “s” 开始的所有网站：</p>
+<p>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[GFs]’;</p>
+<p>下面的 SQL 语句选取 name 以 A 到 H 字母开头的网站：</p>
+<p>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[A-H]’;</p>
+<p>下面的 SQL 语句选取 name 不以 A 到 H 字母开头的网站：<br>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[^A-H]’;</p>
+<p>IN 操作符<br>IN 操作符允许在 WHERE 子句中规定多个值。</p>
+<p>SQL IN 语法<br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name IN (value1,value2,…);</p>
+<p>SQL BETWEEN 操作符<br>BETWEEN 操作符选取介于两个值之间的数据范围内的值。这些值可以是数值、文本或者日期。</p>
+<p>SQL BETWEEN 语法<br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name BETWEEN value1 AND value2;</p>
+<p>带有 IN 的 BETWEEN 操作符<br>下面的 SQL 语句选取 alexa 介于 1 和 20 之间但 country 不为 USA 和 IND 的所有网站：</p>
+<p>SELECT * FROM Websites<br>WHERE (alexa BETWEEN 1 AND 20)<br>AND country NOT IN (‘USA’, ‘IND’);</p>
+<p>SQL别名（简化，不影响原表/列的名称）</p>
+<p>列的 SQL 别名语法<br>SELECT column_name AS alias_name<br>FROM table_name;<br>表的 SQL 别名语法<br>SELECT column_name(s)<br>FROM table_name AS alias_name;</p>
+<p>SQL JOIN<br>SQL JOIN 子句用于把来自两个或多个表的行结合起来，基于这些表之间的共同字段。</p>
+<p>SQL INNER JOIN 关键字<br>INNER JOIN 关键字在表中存在至少一个匹配时返回行。</p>
+<p>SQL INNER JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>INNER JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
+<p>SELECT column_name(s)<br>FROM table1<br>JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：INNER JOIN 与 JOIN 是相同的。</p>
+<p>SQL LEFT JOIN 关键字<br>LEFT JOIN 关键字从左表（table1）返回所有的行，即使右表（table2）中没有匹配。如果右表中没有匹配，则结果为 NULL。</p>
+<p>SQL LEFT JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>LEFT JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
+<p>SELECT column_name(s)<br>FROM table1<br>LEFT OUTER JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：在某些数据库中，LEFT JOIN 称为 LEFT OUTER JOIN。</p>
+<p>SQL RIGHT JOIN 关键字<br>RIGHT JOIN 关键字从右表（table2）返回所有的行，即使左表（table1）中没有匹配。如果左表中没有匹配，则结果为 NULL。</p>
+<p>SQL RIGHT JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>RIGHT JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
+<p>SELECT column_name(s)<br>FROM table1<br>RIGHT OUTER JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：在某些数据库中，RIGHT JOIN 称为 RIGHT OUTER JOIN。</p>
+<p>MySQL中不支持 FULL OUTER JOIN</p>
+<p>总的来说：A inner join B 取交集。</p>
+<p>A left join B 取 A 全部，B 没有对应的值为 null。</p>
+<p>A right join B 取 B 全部 A 没有对应的值为 null。</p>
+<p>A full outer join B 取并集，彼此没有对应的值为 null。</p>
+<p>对应条件在 on 后面填写。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckh6dcd8r0007gcwt5uxhcv2n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C语言第九周</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/">SQL第九周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/">C语言第九周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/">笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/">C语言第八周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/">SQL第七周</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 cll-design<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

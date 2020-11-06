@@ -66,6 +66,244 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-用Dev-c++学习c语言" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" class="article-date">
+  <time datetime="2020-10-12T13:54:58.211Z" itemprop="datePublished">2020-10-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/">用Dev-C++实现简单编程时遇到的一些问题及一些语法格式的记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遇到的一些问题</p>
+<p>函数不用；结尾语句才是</p>
+<p>出现新变量需要定义出它，需注意其数据类型。（赋值）</p>
+<p>变量定义后，若没有给其存储空间里存放数据，则该空间的值是不确定的。</p>
+<p>scanf(“%lf”,&amp;km);(分号！)中需注意””包含内容的起止位置(有一次无法运行的原因)</p>
+<p>%7.2f的意思</p>
+<p>其中7指的是小数点前的位数无字符的部分用空格占据位置</p>
+<p>而小数点后的2表示精确到小数点后几位小数点后用零占据位置</p>
+<p>如果写作”%.2f”则对小数点前的位数不做出限制全部显示而对小数点后的精确度做出了限制</p>
+<p>printf(“”, );</p>
+<p>在printf函数中，格式说明符以外的字符按原样输出。%m.nf控制输出的结果中一共有m位，其中小数占n位。</p>
+<p>其中””中的内容以什么形式分隔开影响着输出中以什么形式分隔开</p>
+<p>输出数据后若出现空格是手动打在””中对应数据的后方的不是靠%.nf完成的</p>
+<p>输出时不要忘记打出格式说明符（不然会导致输出结果为空）</p>
+<p>遇到较大的常量时数据类型应选用double或表示范围更大的数据类型，否则当要表示的数据超过计算机所使用的数据的表示范围时，会产生数据的溢出。产生由数据溢出导致的计算结果错误。</p>
+<p>在一个C语言程序中必须有且只能有一个main（）函数，而且main（）函数可以在任何地方出现</p>
+<p>标识符的第一个字符必须是字母或者下划线（否则就被视为不合法字符）</p>
+<p>“void”不是标识符而是关键字</p>
+<p>do是关键字不能用做变量名</p>
+<p>实数以指数形式表示的时候，字母E或e后面的指数必须为整数，且E或e之前必须有数字。</p>
+<p>关于错误： [Error] ld returned 1 exit status</p>
+<ol>
+<li>编译器正在执行刚刚的程序还没关；小黑框还在。<br>解决措施：关闭小黑框</li>
+<li>定义的函数和调用的函数名字不一样，也会造成产生这种错误！！</li>
+</ol>
+<p>输入int main()时漏了()</p>
+<p>4    2    C:\clldzy\未命名12.cpp    [Error] expected primary-expression before ‘char’</p>
+<p>漏了分号</p>
+<p>5    2    C:\clldzy\未命名12.cpp    [Error] expected initializer before ‘b’</p>
+<p>6    14    C:\clldzy\未命名12.cpp    [Error] ‘b’ was not declared in this scope</p>
+<p>%f和%lf分别是float类型和baidouble类型用于格式化输入输du出时对应的格式符号。<br>其中：zhi<br>float，单精度dao浮点型，对应%f.<br>double,双精度浮点型，对应%lf.<br>在用于输出时:<br>float类型可以使用%lf格式，但不会有任何好处。<br>double类型如果使用了%f格式可能会导致输出错误。<br>在用于输入时:<br>double 类型使用了%f格式，会导致输入值错误。<br>float类型使用double类型不仅会导致输入错误，还可能引起程序崩溃。<br>所以在输入输出时，一定要区分好double和float，而使用对应的格式符号。</p>
+<p>C语言运算符的优先级</p>
+<table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">运算符</th>
+<th align="left">结合性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">后缀</td>
+<td align="left">() [] -&gt; . ++ - -</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">一元</td>
+<td align="left">+ - ! ~ ++ - - (type)* &amp; sizeof</td>
+<td align="left">从右到左</td>
+</tr>
+<tr>
+<td align="left">乘除</td>
+<td align="left">* / %</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">加减</td>
+<td align="left">+ -</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">移位</td>
+<td align="left">&lt;&lt; &gt;&gt;</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">关系</td>
+<td align="left">&lt; &lt;= &gt; &gt;=</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">相等</td>
+<td align="left">== !=</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">位与 AND</td>
+<td align="left">&amp;</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">位异或 XOR</td>
+<td align="left">^</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">位或 OR</td>
+<td align="left">|</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">逻辑与 AND</td>
+<td align="left">&amp;&amp;</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">逻辑或 OR</td>
+<td align="left">||</td>
+<td align="left">从左到右</td>
+</tr>
+<tr>
+<td align="left">条件</td>
+<td align="left">?:</td>
+<td align="left">从右到左</td>
+</tr>
+<tr>
+<td align="left">赋值</td>
+<td align="left">= += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=</td>
+<td align="left">从右到左</td>
+</tr>
+<tr>
+<td align="left">逗号</td>
+<td align="left">,</td>
+<td align="left">从左到右</td>
+</tr>
+</tbody></table>
+<p>语法格式</p>
+<p>1.文件包含</p>
+<p>#include &lt;文件名&gt;</p>
+<p>或</p>
+<p>#include“文件名”</p>
+<p>2.变量的赋值</p>
+<p>  数据类型     变量名1=值1，变量名2=值2，…，变量名n=值n；</p>
+<p>eg：int a=3，b=4，c=5；</p>
+<p> 变量名1=值1；</p>
+<p>eg：int a，b，c；</p>
+<p>a=3；b=4；c=5；</p>
+<p>3.定义常变量</p>
+<p>const 数据类型 常变量名=初始值</p>
+<p>4.标准格式输出函数</p>
+<p>printf（格式控制序列，输出表格）；</p>
+<p>5.字符输入或输出函数</p>
+<p>putchar(ch);</p>
+<p>5.用对象流实现输入或输出</p>
+<p>a.标准输出流</p>
+<p>cin&gt;&gt;表达式1&lt;&lt;表达式2&lt;&lt;…&lt;&lt;表达式n；</p>
+<p>b.标准输出流cout</p>
+<p>cout&lt;&lt;表达式1&lt;&lt;表达式2&lt;&lt;…&lt;&lt;表达式n；</p>
+<p>6.赋值表达式</p>
+<p>变量名 赋值运算符 表达式</p>
+<p>(复合赋值运算符：变量名=变量名 运算符 表达式)</p>
+<p>7.关系表达式</p>
+<p>表达式1 关系运算符 表达式2</p>
+<p>8.逻辑表达式</p>
+<p>[表达式1] 逻辑运算符 表达式2</p>
+<p>9.位运算表达式</p>
+<p>~操作数</p>
+<p>10.按位左移运算</p>
+<p>操作数&lt;&lt;左位移数</p>
+<p>11.按右位移运算</p>
+<p>操作数&gt;&gt;右位移数</p>
+<p>12.按位与运算</p>
+<p>操作数1&amp;操作数2</p>
+<p>13.按位异或运算</p>
+<p>操作数1^操作数2</p>
+<p>14.按位或运算</p>
+<p>操作数1|操作数2</p>
+<p>15.条件表达式</p>
+<p>判定式？表达式1：表达式2</p>
+<p>16.逗号表达式</p>
+<p>表达式1，表达式2，…表达式n</p>
+<p>17.求字节表达式</p>
+<p>sizeo(类型名|变量名)</p>
+<p>18.强制类型转换</p>
+<p>(类型名)(表达式)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="ckh6dcd8x000bgcwt0upn1415" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-标题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/10/%E6%A0%87%E9%A2%98/" class="article-date">
+  <time datetime="2020-10-10T13:02:58.968Z" itemprop="datePublished">2020-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/10/%E6%A0%87%E9%A2%98/">标题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随便输</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/10/%E6%A0%87%E9%A2%98/" data-id="ckh6dcd8t000agcwtbxtgci4i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/10/hello-world/" class="article-date">
@@ -105,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/10/hello-world/" data-id="ckgxf1a6e0004zswtbifr8pi9" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/10/hello-world/" data-id="ckh6dcd8q0006gcwt1idvfxan" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,7 +376,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
     </div>
   </div>
 
@@ -151,6 +389,14 @@
       <ul>
         
           <li>
+            <a href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/">SQL第九周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/">C语言第九周</a>
+          </li>
+        
+          <li>
             <a href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/">笔记</a>
           </li>
         
@@ -160,14 +406,6 @@
         
           <li>
             <a href="/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/">SQL第七周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/">两天一夜（未完待续...)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/20/C%E8%AF%AD%E8%A8%80/">C语言第七周</a>
           </li>
         
       </ul>
