@@ -15,7 +15,7 @@
 <meta property="og:description" content="information_schema，系统数据库，包含所有数据库相关信息 information_schema.schemata中schema_name列，字段为所有数据库名称 information_schema.tables中table_name列对应数据库所有表名，其中table_schema列是所有数据库名 information_schema.tables  当前用户数据库中的表 inf">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-14T02:38:30.014Z">
-<meta property="article:modified_time" content="2020-11-14T05:01:22.647Z">
+<meta property="article:modified_time" content="2020-11-14T09:43:24.147Z">
 <meta property="article:author" content="cll-design">
 <meta name="twitter:card" content="summary">
   
@@ -107,25 +107,25 @@
 <p>limit 0,1;其中第一位代表的是从第一加一位开始，第二位表示显示的数据个数</p>
 <p>order by是对列进行排序</p>
 <p>要填一个不存在的用户也就是相当于将其注释掉，也是为了配合后面的联合查询:?id=-1或?id=861（order by 不需要显示位所以不需要改为不存在的用户要是这里改了将不会显示任何相关用户的内容即不会回显）</p>
-<p>用order by 判断完有几列数据之后union select 1,2,3或union select null,null,null测试显示位是几</p>
+<p>用order by 判断完有几列数据之后<code>union select 1,2,3</code>或<code>union select null,null,null</code>测试显示位是几</p>
 <p>union select 1占位 …（显示部分）3占位</p>
 <p>‘security’这种输入方法可能会导致单引号问题最好将其改为十六进制0x7365637572697479</p>
 <p>%27security%27)要记得后面还有个括号别漏了</p>
-<p>还有就是union selecet 1,(select group_concat())这个括号里面还有一个select！</p>
+<p>还有就是<code>union selecet 1,(select group_concat())</code>这个括号里面还有一个select！</p>
 <p>schema不要一顺手就打成了schemata!</p>
-<p>最后可以用concat ws(‘:’,username,password)</p>
+<p>最后可以用<code>concat ws(&#39;:&#39;,username,password)</code></p>
 <p>（由于这里也出现了单引号所以最好也用十六进制改写：）</p>
 <p>以username:password的形式输出结果</p>
 <p>再用双查询注入的方式用group_concat()再包裹它实现所有用户名称和密码的显示</p>
-<p>查库：select schema_name from information_schema.schemata</p>
-<p>查表：select table_name from information_schema.tables where taable_schema=’security’</p>
-<p>查列：select column_name from information_schema.columns where table_name=’users’</p>
-<p>查字段：select username,password from security.users</p>
+<p><strong>查库：select schema_name from information_schema.schemata</strong></p>
+<p><strong>查表：select table_name from information_schema.tables where taable_schema=’security’</strong></p>
+<p><strong>查列：select column_name from information_schema.columns where table_name=’users’</strong></p>
+<p><strong>查字段：select username,password from security.users</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckhhe0yki0001jgwtaw2157ye" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckhhi6cz00002d0wtcn5fclpy" class="article-share-link">Share</a>
       
       
     </footer>

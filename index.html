@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhhe0ykk0004jgwtexyp1sip" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhhi6cz10004d0wtfeuo2eih" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,25 +143,25 @@
 <p>limit 0,1;其中第一位代表的是从第一加一位开始，第二位表示显示的数据个数</p>
 <p>order by是对列进行排序</p>
 <p>要填一个不存在的用户也就是相当于将其注释掉，也是为了配合后面的联合查询:?id=-1或?id=861（order by 不需要显示位所以不需要改为不存在的用户要是这里改了将不会显示任何相关用户的内容即不会回显）</p>
-<p>用order by 判断完有几列数据之后union select 1,2,3或union select null,null,null测试显示位是几</p>
+<p>用order by 判断完有几列数据之后<code>union select 1,2,3</code>或<code>union select null,null,null</code>测试显示位是几</p>
 <p>union select 1占位 …（显示部分）3占位</p>
 <p>‘security’这种输入方法可能会导致单引号问题最好将其改为十六进制0x7365637572697479</p>
 <p>%27security%27)要记得后面还有个括号别漏了</p>
-<p>还有就是union selecet 1,(select group_concat())这个括号里面还有一个select！</p>
+<p>还有就是<code>union selecet 1,(select group_concat())</code>这个括号里面还有一个select！</p>
 <p>schema不要一顺手就打成了schemata!</p>
-<p>最后可以用concat ws(‘:’,username,password)</p>
+<p>最后可以用<code>concat ws(&#39;:&#39;,username,password)</code></p>
 <p>（由于这里也出现了单引号所以最好也用十六进制改写：）</p>
 <p>以username:password的形式输出结果</p>
 <p>再用双查询注入的方式用group_concat()再包裹它实现所有用户名称和密码的显示</p>
-<p>查库：select schema_name from information_schema.schemata</p>
-<p>查表：select table_name from information_schema.tables where taable_schema=’security’</p>
-<p>查列：select column_name from information_schema.columns where table_name=’users’</p>
-<p>查字段：select username,password from security.users</p>
+<p><strong>查库：select schema_name from information_schema.schemata</strong></p>
+<p><strong>查表：select table_name from information_schema.tables where taable_schema=’security’</strong></p>
+<p><strong>查列：select column_name from information_schema.columns where table_name=’users’</strong></p>
+<p><strong>查字段：select username,password from security.users</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckhhe0yki0001jgwtaw2157ye" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckhhi6cz00002d0wtcn5fclpy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -209,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhhe0ykm0009jgwt1s619jte" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhhi6cz40009d0wtbr5e63in" class="article-share-link">Share</a>
       
       
     </footer>
@@ -312,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhhe0ykm0008jgwtb7zteypo" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhhi6cz30008d0wt85dxdwrf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhhe0ykj0002jgwt1caye5i7" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhhi6cyv0000d0wtgjo4db9n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="ckhhe0ykp000cjgwt1xi14rf2" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="ckhhi6cz6000cd0wt2hjw0zr5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -476,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="ckhhe0ykj0003jgwt19c0fquh" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="ckhhi6cz10003d0wtfjw862d5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -602,7 +602,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckhhe0ykl0007jgwt6kui14a9" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckhhi6cz30007d0wta1ewd1a8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -652,7 +652,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckhhe0ykn000bjgwta1db3tfz" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckhhi6cz5000bd0wt4k4c5avi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -729,7 +729,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="ckhhe0yk90000jgwt14d5dmvu" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="ckhhi6cyz0001d0wt27lmd29c" class="article-share-link">Share</a>
       
       
     </footer>
