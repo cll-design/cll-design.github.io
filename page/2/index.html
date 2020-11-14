@@ -66,6 +66,648 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-PHP变量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/17/PHP%E5%8F%98%E9%87%8F/" class="article-date">
+  <time datetime="2020-10-17T12:25:14.166Z" itemprop="datePublished">2020-10-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/17/PHP%E5%8F%98%E9%87%8F/">PHP第一周</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PHP变量</p>
+<p>与C语言类似的赋值</p>
+<p>语法规则：</p>
+<p>变量以 $ 符号开始，后面跟着变量的名称</p>
+<p>变量名必须以字母或者下划线字符开始（与C语言的标识符规则类似）</p>
+<p>变量名只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）</p>
+<p>变量名不能包含空格</p>
+<p>变量名是区分大小写的（$y 和 $Y 是两个不同的变量）</p>
+<p>关键字</p>
+<p>global 关键字用于函数内访问全局变量（在函数内调用函数外定义的全局变量）</p>
+<p>要想在函数中直接使用全局变量可以通过 <strong>global</strong> 关键字声明或者通过 php 中自定义的 <strong>$GLOBALS</strong> 数组获取</p>
+<p>PHP 将所有全局变量存储在一个名为 $GLOBALS[<em>index</em>] 的数组中（ index 是保存变量的名称，这个数组可以在函数内部访问，也可以直接用来更新全局变量）</p>
+<p>当一个函数执行完成时，它的所有变量通常都会被删除，若是希望某个局部变量不要被删除——使用Static作用域（再调用时保留前一次的值）</p>
+<p>变量的作用域是脚本中变量可被引用和使用的部分，PHP 中四种不同的变量作用域:</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">作用域</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">local</td>
+<td align="left">局部作用域（在函数内部声明在函数外部无法访问）</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">global</td>
+<td align="left">全局作用域（可被脚本中任何部分访问）</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">static</td>
+<td align="left">静态作用域</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">parameter</td>
+<td align="left">函数参数作用域（调用代码将值传给函数的局部变量）</td>
+</tr>
+</tbody></table>
+<p>PHP echo 语句和print 语句</p>
+<p>同：使用时括号可有可无</p>
+<p>异：echo - 可以输出一个或多个字符串<br>        print - 只允许输出一个字符串，返回值总为 1<br>（echo 输出的速度比 print 快， echo 没有返回值，print有返回值1）</p>
+<p>echo()（必须要有引号！）: 可一次输出多值（输出多参数时不能有括号），值间用逗号分隔。echo是语言结构即关键字，不是真正的函数，故不能作为表达式的一部分使用</p>
+<p>print(): 函数print()打印一个值（它的参数），如果字符串成功显示则返回true，否则返回false</p>
+<p>print_r(): 可以把字符串和数字简单地打印出来，而数组则以括起来的键和值得列表形式显示，并以Array开头。但print_r()输出布尔值和NULL的结果没有意义，因为都是打印”\n”。因此用var_dump()函数更适合调试</p>
+<p>var_dump(): 判断一个变量的类型与长度,并输出变量的数值,如果变量有值输的是变量的值并回返数据类型。此函数显示关于一个或多个表达式的结构信息，包括表达式的类型与值。数组将递归展开值，通过缩进显示其结构。</p>
+<p>print $a 和 print “$a” 效果相同，echo 同理</p>
+<p>print “text$a text” 和 print “text $a text” 和 print “text{$a}text” 都可以正常显示 $a 的值，不使用 {} 则 &amp;a 之后必须有一个空格，不然就无法识别变量（”text$atext” 会识别为变量 $atext）echo 同理</p>
+<p>PHP EOF</p>
+<p>PHP EOF是一种在命令行shell和程序语言里定义一个字符串的方法</p>
+<p>语法规则：</p>
+<p>必须后接分号，否则编译通不过</p>
+<p>EOF 可以用任意其它字符代替，只需保证结束标识与开始标识一致</p>
+<p>结束标识必须顶格独自占一行(即必须从行首开始，前后不能衔接任何空白和字符)</p>
+<p>开始标识可以不带引号或带单双引号，不带引号与带双引号效果一致，解释内嵌的变量和转义符号，带单引号则不解释内嵌的变量和转义符号</p>
+<p>当内容需要内嵌引号（单引号或双引号）时，不需要加转义符，本身对单双引号转义，此处相当与q和qq的用法。</p>
+<p>注意：</p>
+<p>1.以 &lt;&lt;&lt;EOF 开始标记开始，以 EOF 结束标记结束，结束标记必须顶头写，不能有缩进和空格，且在结束标记末尾要有分号 （与换行符PHP_EOL不要记混）</p>
+<p>2.开始标记和结束标记相同，比如常用大写的 EOT、EOD、EOF 来表示，但是不只限于那几个(也可以用：JSON、HTML等)，只要保证开始标记和结束标记不在正文中出现即可。</p>
+<p>3.位于开始标记和结束标记之间的变量可以被正常解析，但是函数则不可以。在 heredoc 中，变量不需要用连接符 . 或 , 来拼接</p>
+<p>字符串</p>
+<p>即一串字符的序列</p>
+<p>可将任何文本放在单引号和双引号中形成一个字符串</p>
+<p>PHP整型</p>
+<p>整数规则:</p>
+<p>整数必须至少有一个数字 (0-9)<br>整数不能包含逗号或空格<br>整数是没有小数点的<br>整数可以是正数或负数<br>整型可以用三种格式来指定：十进制， 十六进制（ 以 0x 为前缀）或八进制（前缀为 0）</p>
+<p>PHP 浮点型<br>浮点数是带小数部分的数字，或是指数形式</p>
+<p>PHP 布尔型<br>布尔型可以是 TRUE 或 FALSE</p>
+<p>$x=true;<br>$y=false;<br>布尔型通常用于条件判断</p>
+<p>PHP 数组<br>数组可以在一个变量中存储多个值</p>
+<p>PHP 对象<br>对象数据类型也可以用于存储数据</p>
+<p>在PHP中对象必须声明</p>
+<p>必须使用class关键字声明类对象，类是可以包含属性和方法的结构</p>
+<p>PHP NULL 值<br>NULL 值表示变量没有值，NULL 是数据类型为 NULL 的值。</p>
+<p>NULL 值指明一个变量是否为空值，同样可用于数据空值和NULL值的区别</p>
+<p>可以通过设置变量值为 NULL 来清空变量数据</p>
+<p>PHP算术运算符</p>
+<p>C语言中没有的：a . b    并置    连接两个字符串    “Hi” . “Ha”    HiHa</p>
+<p>取反符号写在$符号前面-$x(预递增符号于此类似++$x)</p>
+<p>PHP比较运算符</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">名称</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">x == y</td>
+<td align="left">等于</td>
+<td align="left">如果 x 等于 y，则返回 true</td>
+<td align="left">5==8 返回 false</td>
+</tr>
+<tr>
+<td align="left">x === y</td>
+<td align="left">绝对等于</td>
+<td align="left">如果 x 等于 y，且它们类型相同，则返回 true</td>
+<td align="left">5===”5” 返回 false</td>
+</tr>
+<tr>
+<td align="left">x != y</td>
+<td align="left">不等于</td>
+<td align="left">如果 x 不等于 y，则返回 true</td>
+<td align="left">5!=8 返回 true</td>
+</tr>
+<tr>
+<td align="left">x &lt;&gt; y</td>
+<td align="left">不等于</td>
+<td align="left">如果 x 不等于 y，则返回 true</td>
+<td align="left">5&lt;&gt;8 返回 true</td>
+</tr>
+<tr>
+<td align="left">x !== y</td>
+<td align="left">绝对不等于</td>
+<td align="left">如果 x 不等于 y，或它们类型不相同，则返回 true</td>
+<td align="left">5!==”5” 返回 true</td>
+</tr>
+<tr>
+<td align="left">x &gt; y</td>
+<td align="left">大于</td>
+<td align="left">如果 x 大于 y，则返回 true</td>
+<td align="left">5&gt;8 返回 false</td>
+</tr>
+<tr>
+<td align="left">x &lt; y</td>
+<td align="left">小于</td>
+<td align="left">如果 x 小于 y，则返回 true</td>
+<td align="left">5&lt;8 返回 true</td>
+</tr>
+<tr>
+<td align="left">x &gt;= y</td>
+<td align="left">大于等于</td>
+<td align="left">如果 x 大于或者等于 y，则返回 true</td>
+<td align="left">5&gt;=8 返回 false</td>
+</tr>
+<tr>
+<td align="left">x &lt;= y</td>
+<td align="left">小于等于</td>
+<td align="left">如果 x 小于或者等于 y，则返回 true</td>
+<td align="left">5&lt;=8 返回 true</td>
+</tr>
+</tbody></table>
+<p>PHP逻辑运算符</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">名称</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">x and y</td>
+<td align="left">与</td>
+<td align="left">如果 x 和 y 都为 true，则返回 true</td>
+<td align="left">x=6 y=3 (x &lt; 10 and y &gt; 1) 返回 true</td>
+</tr>
+<tr>
+<td align="left">x or y</td>
+<td align="left">或</td>
+<td align="left">如果 x 和 y 至少有一个为 true，则返回 true</td>
+<td align="left">x=6 y=3 (x==6 or y==5) 返回 true</td>
+</tr>
+<tr>
+<td align="left">x xor y</td>
+<td align="left">异或</td>
+<td align="left">如果 x 和 y 有且仅有一个为 true，则返回 true</td>
+<td align="left">x=6 y=3 (x==6 xor y==3) 返回 false</td>
+</tr>
+<tr>
+<td align="left">x &amp;&amp; y</td>
+<td align="left">与</td>
+<td align="left">如果 x 和 y 都为 true，则返回 true</td>
+<td align="left">x=6 y=3 (x &lt; 10 &amp;&amp; y &gt; 1) 返回 true</td>
+</tr>
+<tr>
+<td align="left">x || y</td>
+<td align="left">或</td>
+<td align="left">如果 x 和 y 至少有一个为 true，则返回 true</td>
+<td align="left">x=6 y=3 (x==5 || y==5) 返回 false</td>
+</tr>
+<tr>
+<td align="left">! x</td>
+<td align="left">非</td>
+<td align="left">如果 x 不为 true，则返回 true</td>
+<td align="left">x=6 y=3 !(x==y) 返回 true</td>
+</tr>
+</tbody></table>
+<p>PHP数组运算符</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">x + y</td>
+<td align="left">集合</td>
+<td align="left">x 和 y 的集合</td>
+</tr>
+<tr>
+<td align="left">x == y</td>
+<td align="left">相等</td>
+<td align="left">如果 x 和 y 具有相同的键/值对，则返回 true</td>
+</tr>
+<tr>
+<td align="left">x === y</td>
+<td align="left">恒等</td>
+<td align="left">如果 x 和 y 具有相同的键/值对，且顺序相同类型相同，则返回 true</td>
+</tr>
+<tr>
+<td align="left">x != y</td>
+<td align="left">不相等</td>
+<td align="left">如果 x 不等于 y，则返回 true</td>
+</tr>
+<tr>
+<td align="left">x &lt;&gt; y</td>
+<td align="left">不相等</td>
+<td align="left">如果 x 不等于 y，则返回 true</td>
+</tr>
+<tr>
+<td align="left">x !== y</td>
+<td align="left">不恒等</td>
+<td align="left">如果 x 不等于 y，则返回 true</td>
+</tr>
+</tbody></table>
+<p>三元运算符</p>
+<p>语法格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(expr1) ? (expr2) : (expr3) </span><br></pre></td></tr></table></figure>
+
+<p>对 expr1 求值为 TRUE 时的值为 expr2，在 expr1 求值为 FALSE 时的值为 expr3。</p>
+<p>自 PHP 5.3 起，可以省略三元运算符中间那部分，表达式 expr1 ?: expr3 在 expr1 求值为 TRUE 返回 expr1，否则返回 expr3</p>
+<p>PHP_EOL 是一个换行符，PHP7+ 版本多了一个 NULL 合并运算符 <strong>??</strong></p>
+<p>组合比较符（PHP7+)</p>
+<p>PHP7+ 支持组合比较符，符号为 <strong>&lt;=&gt;</strong></p>
+<p>语法规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$c &#x3D; $a &lt;&#x3D;&gt; $b;</span><br></pre></td></tr></table></figure>
+
+<p>理解：</p>
+<ul>
+<li>如果 <strong>$a &gt; $b</strong>, 则 <strong>$c</strong> 的值为 <strong>1</strong></li>
+<li>如果 <strong>$a == $b</strong>, 则 <strong>$c</strong> 的值为 <strong>0</strong></li>
+<li>如果 <strong>$a &lt; $b</strong>, 则 <strong>$c</strong> 的值为 <strong>-1</strong></li>
+</ul>
+<p>运算符优先级</p>
+<table>
+<thead>
+<tr>
+<th align="left">结合方向</th>
+<th align="left">运算符</th>
+<th align="left">附加信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">无</td>
+<td align="left">clone new</td>
+<td align="left">clone 和 new</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">[</td>
+<td align="left">array()</td>
+</tr>
+<tr>
+<td align="left">右</td>
+<td align="left">++ – ~ (int) (float) (string) (array) (object) (bool) @</td>
+<td align="left">类型和递增／递减</td>
+</tr>
+<tr>
+<td align="left">无</td>
+<td align="left">instanceof</td>
+<td align="left">类型</td>
+</tr>
+<tr>
+<td align="left">右</td>
+<td align="left">!</td>
+<td align="left">逻辑运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">* / %</td>
+<td align="left">算术运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">+ – .</td>
+<td align="left">算术运算符和字符串运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">&lt;&lt; &gt;&gt;</td>
+<td align="left">位运算符</td>
+</tr>
+<tr>
+<td align="left">无</td>
+<td align="left">== != === !== &lt;&gt;</td>
+<td align="left">比较运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">&amp;</td>
+<td align="left">位运算符和引用</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">^</td>
+<td align="left">位运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">|</td>
+<td align="left">位运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">&amp;&amp;</td>
+<td align="left">逻辑运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">||</td>
+<td align="left">逻辑运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">? :</td>
+<td align="left">三元运算符</td>
+</tr>
+<tr>
+<td align="left">右</td>
+<td align="left">= += -= *= /= .= %= &amp;= |= ^= &lt;&lt;= &gt;&gt;= =&gt;</td>
+<td align="left">赋值运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">and</td>
+<td align="left">逻辑运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">xor</td>
+<td align="left">逻辑运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">or</td>
+<td align="left">逻辑运算符</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">,</td>
+<td align="left">多处用到</td>
+</tr>
+</tbody></table>
+<p>PHP条件语句</p>
+<p>当您编写代码时，您常常需要为不同的判断执行不同的动作。您可以在代码中使用条件语句来完成此任务。</p>
+<p>在 PHP 中，提供了下列条件语句：</p>
+<p><strong>if 语句</strong> - 在条件成立时执行代码</p>
+<p><strong>if…else 语句</strong> - 在条件成立时执行一块代码，条件不成立时执行另一块代码</p>
+<p><strong>if…elseif….else 语句</strong> - 在若干条件之一成立时执行一个代码块</p>
+<p><strong>switch 语句</strong> - 在若干条件之一成立时执行一个代码块</p>
+<p>Switch（有选择执行代码）</p>
+<p>语法规则：</p>
+<?php
+
+ switch (n)
+
+ { case label1:    如果 n=label1，此处代码将执行;  
+
+break; 
+
+case label2:    如果 n=label2，此处代码将执行;
+
+break; default:    如果 n 既不等于 label1 也不等于 label2，此处代码将执行; 
+
+}
+
+?>
+
+<p>理解：首先对一个简单的表达式 <em>n</em>（通常是变量）进行一次计算。将表达式的值与结构中每个 case 的值进行比较。如果存在匹配，则执行与 case 关联的代码。代码执行后，使用 <strong>break</strong> 来阻止代码跳入下一个 case 中继续执行。<strong>default</strong> 语句用于不存在匹配（即没有 case 为真）时执行</p>
+<p>PHP数组</p>
+<p>array();创建一个数组的函数</p>
+<p>数值数组 - 带有数字 ID 键的数组</p>
+<p>自动分配 ID 键（ID 键总是从 0 开始）：</p>
+<p>$cars=array(“Volvo”,”BMW”,”Toyota”);</p>
+<p>人工分配 ID 键：</p>
+<p>$cars[0]=”Volvo”;<br>$cars[1]=”BMW”;<br>$cars[2]=”Toyota”;</p>
+<p>count() 函数用于返回数组的长度（元素的数量）</p>
+<p>规则：echo count($x)</p>
+<p>遍历数值数组</p>
+<p>遍历并打印数值数组中的所有值（可使用 for 循环）：</p>
+<?php $cars=array("Volvo","BMW","Toyota"); $arrlength=count($cars);  for($x=0;$x<$arrlength;$x++) {    echo $cars[$x];    echo "<br>"; } ?>
+
+
+
+
+
+<p>关联数组 - 带有指定的键的数组，每个键关联一个值</p>
+<p>两种创建关联数组的方法：</p>
+<p>$age=array(“Peter”=&gt;”35”,”Ben”=&gt;”37”,”Joe”=&gt;”43”);</p>
+<p>or:</p>
+<p>$age[‘Peter’]=”35”;<br>$age[‘Ben’]=”37”;<br>$age[‘Joe’]=”43”;</p>
+<p>遍历关联数组</p>
+<p>遍历并打印关联数组中的所有值（可使用 foreach 循环）：</p>
+<?php $age=array("Peter"=>"35","Ben"=>"37","Joe"=>"43");  foreach($age as $x=>$x_value) {    echo "Key=" . $x . ", Value=" . $x_value;    echo "<br>"; } ?>
+
+
+
+
+
+<p>多维数组 - 包含一个或多个数组的数组</p>
+<p>PHP数组排序函数</p>
+<p>sort() - 对数组进行升序排列</p>
+<p>rsort() - 对数组进行降序排列</p>
+<p>asort() - 根据关联数组的值，对数组进行升序排列</p>
+<p>ksort() - 根据关联数组的键，对数组进行升序排列</p>
+<p>arsort() - 根据关联数组的值，对数组进行降序排列</p>
+<p>krsort() - 根据关联数组的键，对数组进行降序排列</p>
+<p>PHP超级全局变量</p>
+<p>在一个脚本的全部作用域中都可用，且不需要特别说明，就可以在函数及类中使用</p>
+<p>PHP 超级全局变量:</p>
+<p>$GLOBALS 是一个包含了全部变量的全局组合数组。变量的名字就是数组的键</p>
+<p>$_SERVER是一个包含了诸如头信息(header)、路径(path)、以及脚本位置(script locations)等等信息的数组</p>
+<p>$_REQUEST用于收集HTML表单提交的数据xxz！</p>
+<p>$_POST被广泛应用于收集表单数据</p>
+<p>$_GET被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method=”get”，$_GET 也可以收集URL中发送的数据</p>
+<p>$_FILES</p>
+<p>$_ENV</p>
+<p>$_COOKIE</p>
+<p>$_SESSION</p>
+<p>PHP循环</p>
+<p><strong>while</strong> - 只要指定的条件成立，则循环执行代码块</p>
+<p>while 循环将重复执行代码块，直到指定的条件不成立</p>
+<p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while (条件)</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p><strong>do…while</strong> - 首先执行一次代码块，然后在指定的条件成立时重复这个循环</p>
+<p>do…while 语句会至少执行一次代码，然后检查条件，条件成立，就重复循环</p>
+<p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br><span class="line">while (条件);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p><strong>for</strong> - 循环执行代码块指定的次数</p>
+<p>for 循环用于您预先知道脚本需要运行的次数的情况</p>
+<p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (初始值; 条件; 增量)</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<p><strong>初始值</strong>：主要是初始化一个变量值，用于设置一个计数器（但可以是任何在循环的开始被执行一次的代码）</p>
+<p><strong>条件</strong>：循环执行的限制条件。如果为 TRUE，则循环继续。如果为 FALSE，则循环结束</p>
+<p><strong>增量</strong>：主要用于递增计数器（但可以是任何在循环的结束被执行的代码）</p>
+<p><strong>注释：</strong>上面的<strong>初始值</strong>和<strong>增量</strong>参数可为空，或者有多个表达式（用逗号分隔）</p>
+<p><strong>foreach</strong> - 根据数组中每个元素来循环代码块</p>
+<p>foreach 循环用于遍历数组</p>
+<p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ($array as $value)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每进行一次循环，当前数组元素的值就会被赋值给 $value 变量（数组指针会逐一地移动），在进行下一次循环时，将看到数组中的下一个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ($array as $key &#x3D;&gt; $value)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每一次循环，当前数组元素的键与值就都会被赋值给 $key 和 $value 变量（数字指针会逐一地移动），在进行下一次循环时，将看到数组中的下一个键与值</p>
+<p>创建PHP常数</p>
+<p>函数是通过调用函数来执行的</p>
+<p>语法</p>
+<?php function functionName() {    // 要执行的代码 } ?>
+
+<p>PHP 函数准则：</p>
+<p>函数的名称应该提示出它的功能</p>
+<p>函数名称以字母或下划线开头（不能以数字开头）</p>
+<p>PHP—函数—返回值</p>
+<p>如需让函数返回一个值，请使用 return 语句</p>
+<p>PHP魔术常量</p>
+<p>-LINE-行数（下划线下同）</p>
+<p>-FILE-文件的完整路径和文件名</p>
+<p>-DIR-文件所在的目录等价于 dirname(-<strong>FILE</strong>-)</p>
+<p>-FUNCTION-函数名称</p>
+<p>-CLASS-类的名称</p>
+<p>-TRAIT-<br>Trait 的名字。自 PHP 5.4.0 起，PHP 实现了代码复用的一个方法，称为 traits，Trait 名包括其被声明的作用区域（例如 Foo\Bar）</p>
+<p>-METHOD-<br>类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）</p>
+<p>-NAMESPACE-<br>当前命名空间的名称（区分大小写）。此常量是在编译时定义的</p>
+<p>PHP命名空间（理解）</p>
+<p>PHP面向对象（理解）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/17/PHP%E5%8F%98%E9%87%8F/" data-id="ckhhe0ykt000fjgwtex5uemta" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-PHP概述？" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" class="article-date">
+  <time datetime="2020-10-17T11:19:28.997Z" itemprop="datePublished">2020-10-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/">PHP有关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最基本的：</p>
+<p>变量</p>
+<p>数组</p>
+<p>类</p>
+<p>命名空间</p>
+<p>函数</p>
+<p>传值</p>
+<p>内存分配</p>
+<p>数据类型</p>
+<p>概念和作用场景</p>
+<p>核心：API函数</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" data-id="ckhhe0ykl0006jgwt5lg97vs0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Mysql有关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" class="article-date">
+  <time datetime="2020-10-17T04:36:27.561Z" itemprop="datePublished">2020-10-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/17/Mysql%E6%9C%89%E5%85%B3/">Mysql有关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySQL 是关系型数据库</p>
+<ul>
+<li>表头(header): 每一列的名称;</li>
+<li>列(col): 具有相同数据类型的数据的集合;</li>
+<li>行(row): 每一行用来描述某条记录的具体信息;</li>
+<li>值(value): 行的具体信息, 每个值必须与该列的数据类型相同;</li>
+<li><strong>键(key)</strong>: 键的值在当前列中具有唯一性。</li>
+</ul>
+<p>RDBMS术语：</p>
+<ul>
+<li><strong>数据库:</strong> 数据库是一些关联表的集合。</li>
+<li><strong>数据表:</strong> 表是数据的矩阵。在一个数据库中的表看起来像一个简单的电子表格。</li>
+<li><strong>列:</strong> 一列(数据元素) 包含了相同类型的数据, 例如邮政编码的数据。</li>
+<li><strong>行：</strong>一行（=元组，或记录）是一组相关的数据，例如一条用户订阅的数据。</li>
+<li><strong>冗余</strong>：存储两倍数据，冗余降低了性能，但提高了数据的安全性。</li>
+<li><strong>主键</strong>：主键是唯一的。一个数据表中只能包含一个主键。你可以使用主键来查询数据。</li>
+<li><strong>外键：</strong>外键用于关联两个表。</li>
+<li><strong>复合键</strong>：复合键（组合键）将多个列作为一个索引键，一般用于复合索引。</li>
+<li><strong>索引：</strong>使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。</li>
+<li><strong>参照完整性:</strong> 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" data-id="ckhhe0ykk0005jgwt68o52ole" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-用Dev-c++学习c语言" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" class="article-date">
@@ -257,7 +899,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="ckh6dcd8x000bgcwt0upn1415" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="ckhhe0ykt000ejgwtewsk5qxg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +936,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/10/%E6%A0%87%E9%A2%98/" data-id="ckh6dcd8t000agcwtbxtgci4i" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/10/%E6%A0%87%E9%A2%98/" data-id="ckhhe0ykp000djgwtcmv313hi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -343,7 +985,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/10/hello-world/" data-id="ckh6dcd8q0006gcwt1idvfxan" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/10/hello-world/" data-id="ckhhe0ykn000ajgwtdh6va0es" class="article-share-link">Share</a>
       
       
     </footer>
@@ -389,23 +1031,23 @@
       <ul>
         
           <li>
+            <a href="/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/">C语言第十周</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/14/Best/">Best</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/">SQL第十周</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/">SQL第九周</a>
           </li>
         
           <li>
             <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/">C语言第九周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/">笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/">C语言第八周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/">SQL第七周</a>
           </li>
         
       </ul>
