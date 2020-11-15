@@ -66,6 +66,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Best2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/Best2/" class="article-date">
+  <time datetime="2020-11-15T01:46:22.320Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/15/Best2/">Best2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ascii(substr(select database()),1,1)&gt;156无论多大返回为空？始终显示you are in？=</p>
+<p><code>ascii(substr((select schema_name from information_schemata limit1,1),1,1)=99--+</code>猜测为什么字母</p>
+<p>security二分法拆解</p>
+<p>MID(city,1,3)得cit</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/Best2/" data-id="ckhiu0js000030cwtc3pjfjoq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C语言第十周" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" class="article-date">
@@ -92,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhhi6cz10004d0wtfeuo2eih" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhiu0jrz00020cwt85kf9gvy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -161,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckhhi6cz00002d0wtcn5fclpy" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckhiu0jrt00000cwt5zo2a711" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,11 +245,25 @@
 <p>sys.database_files 存储在数据库中的数据库文件</p>
 <p>sysobjects 数据库中创建的每个对象（例如约束、日志以及存储过程）</p>
 <p>双查询注入：嵌套，从内向外</p>
+<p>1.left()函数：left(database(),1)=’s’     left(a,b)从左侧截取a的前b位，正确则返回1，错误则返回0</p>
+<p>2.regexp函数：select use() regexp ‘r’   从左往右匹配，user()的结果是root,regexp为匹配root的正则表达式</p>
+<p>3.like函数：select users() like ‘ro%’    匹配与regexp相似</p>
+<p>4.substr(a,b,c) select substr()  xxxx     substr(a,b,c)从位置b开始，截取a字符串c位长度</p>
+<p>5.ascii()                                                     将某字符转化为ascii值</p>
+<p>6.chr(数字)   或者是ord(‘字母’)             使用python中的两个函数可以判断当前的ascii值是多少</p>
+<p>对于security数据库：</p>
+<p>select left(databse(),1)=’s’;   第一位是否是s</p>
+<p>select databse() regexp ‘s’;  匹配第一个字符是否是s</p>
+<p>select database() like ‘s%’;   匹配第一个字符是否是s</p>
+<p>select substr((select database()),1,1)=’s’;   匹配的第一个字符是否是s</p>
+<p>select substr((select database()),1,3)=’sec’;    匹配的前三个字符是否是sec</p>
+<p>select ascii(substr((select database())1,1));     直接回显115 或者是:</p>
+<p>select ascii(substr((select database()),1,1))&gt;110;  如果大于110，就会返回1，否则返回0.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhhi6cz40009d0wtbr5e63in" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckhiu0js5000b0cwt6asp2j1w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -312,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhhi6cz30008d0wt85dxdwrf" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhiu0js4000a0cwtddmv6lmn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhhi6cyv0000d0wtgjo4db9n" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckhiu0js100040cwtf6hi0fjv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="ckhhi6cz6000cd0wt2hjw0zr5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="ckhiu0js7000e0cwtbwj84zvg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -476,7 +530,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="ckhhi6cz10003d0wtfjw862d5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="ckhiu0js200060cwtc9ulci3v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -602,7 +656,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckhhi6cz30007d0wta1ewd1a8" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckhiu0js300080cwtddhx8hff" class="article-share-link">Share</a>
       
       
     </footer>
@@ -652,84 +706,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckhhi6cz5000bd0wt4k4c5avi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C语言" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/20/C%E8%AF%AD%E8%A8%80/" class="article-date">
-  <time datetime="2020-10-20T10:57:09.007Z" itemprop="datePublished">2020-10-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/20/C%E8%AF%AD%E8%A8%80/">C语言第七周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>函数指针<br>函数指针是指向函数的指针变量</p>
-<p>指针变量是指向一个整型、字符型或数组等变量，而函数指针是指向函数</p>
-<p>函数指针可以像一般函数一样，用于调用函数、传递参数</p>
-<p>回调函数<br>函数指针作为某个函数的参数<br>函数指针变量可以作为某个函数的参数来使用的，回调函数就是一个通过函数指针调用的函数</p>
-<p>explain：你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的电话，过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店里去取了货。在这个例子里，你的电话号码就叫回调函数，你把电话留给店员就叫登记回调函数，店里后来有货了叫做触发了回调关联的事件，店员给你打电话叫做调用回调函数，你到店里去取货叫做响应回调事件。</p>
-<p>null 字符 ‘\0’ （字符与字符串的区别所在）</p>
-<p>语法规则：char greeting[6] = {‘H’, ‘e’, ‘l’, ‘l’, ‘o’, ‘\0’};</p>
-<p>或者写作char greeting[] = “Hello”;</p>
-<p>操作字符串的函数们：</p>
-<table>
-<thead>
-<tr>
-<th align="left">序号</th>
-<th align="left">函数 &amp; 目的</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left"><strong>strcpy(s1, s2);</strong> 复制字符串 s2 到字符串 s1。</td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td align="left"><strong>strcat(s1, s2);</strong> 连接字符串 s2 到字符串 s1 的末尾。</td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left"><strong>strlen(s1);</strong> 返回字符串 s1 的长度。</td>
-</tr>
-<tr>
-<td align="left">4</td>
-<td align="left"><strong>strcmp(s1, s2);</strong> 如果 s1 和 s2 是相同的，则返回 0；如果 s1&lt;s2 则返回小于 0；如果 s1&gt;s2 则返回大于 0。</td>
-</tr>
-<tr>
-<td align="left">5</td>
-<td align="left"><strong>strchr(s1, ch);</strong> 返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。</td>
-</tr>
-<tr>
-<td align="left">6</td>
-<td align="left"><strong>strstr(s1, s2);</strong> 返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="ckhhi6cyz0001d0wt27lmd29c" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckhiu0js6000c0cwt1vn1d69s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -775,6 +752,10 @@
       <ul>
         
           <li>
+            <a href="/2020/11/15/Best2/">Best2</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/">C语言第十周</a>
           </li>
         
@@ -788,10 +769,6 @@
         
           <li>
             <a href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/">SQL第九周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/">C语言第九周</a>
           </li>
         
       </ul>
