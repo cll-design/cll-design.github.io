@@ -7,15 +7,15 @@
   
   <title>C语言第十一周 | cll-design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="printf对象 赋初值 善用循环语句">
+  <meta name="description" content="union [union tag]  &amp;#123;   member definition;   member definition;   ...   member definition; &amp;#125; [one or more union variables]; union Data &amp;#123;   int i;   float f;   char  str[20]; &amp;#125; data;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言第十一周">
 <meta property="og:url" content="http://example.com/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/index.html">
 <meta property="og:site_name" content="cll-design">
-<meta property="og:description" content="printf对象 赋初值 善用循环语句">
+<meta property="og:description" content="union [union tag]  &amp;#123;   member definition;   member definition;   ...   member definition; &amp;#125; [one or more union variables]; union Data &amp;#123;   int i;   float f;   char  str[20]; &amp;#125; data;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-21T06:39:11.847Z">
-<meta property="article:modified_time" content="2020-11-21T06:48:51.981Z">
+<meta property="article:modified_time" content="2020-11-22T15:09:35.631Z">
 <meta property="article:author" content="cll-design">
 <meta name="twitter:card" content="summary">
   
@@ -88,14 +88,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>printf对象</p>
+        <p><code>union [union tag] </code></p>
+<p><code>&#123;   member definition;   member definition;   ...   member definition; &#125; [one or more union variables];</code></p>
+<p><code>union Data &#123;   int i;   float f;   char  str[20]; &#125; data;</code></p>
+<p><code>#include &lt;stdio.h&gt; #include &lt;string.h&gt;  union Data &#123;   int i;   float f;   char  str[20]; &#125;;  int main( ) &#123;   union Data data;            printf( &quot;Memory size occupied by data : %d\n&quot;, sizeof(data));    return 0; &#125;</code></p>
+<p>printf对象</p>
 <p>赋初值</p>
 <p>善用循环语句</p>
+<p><code>printf(&quot;\n&quot;);</code></p>
+<p><code>for(j=1;j&lt;=n-i;j++)；</code></p>
+<p><code>for(j=1;j&lt;=2*i-1;j--);</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="ckht8g4ce0002j0wte2ws28dw" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="ckht9da4c00057kwthcqmfc5p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -103,6 +110,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SQL，php第十二周
+        
+      </div>
+    </a>
   
   
     <a href="/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" id="article-nav-older" class="article-nav-link-wrap">
@@ -144,6 +160,10 @@
       <ul>
         
           <li>
+            <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/">SQL，php第十二周</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">C语言第十一周</a>
           </li>
         
@@ -157,10 +177,6 @@
         
           <li>
             <a href="/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/">C语言第十周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/14/Best/">Best</a>
           </li>
         
       </ul>

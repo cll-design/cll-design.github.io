@@ -66,6 +66,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-C语言第八周" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" class="article-date">
+  <time datetime="2020-10-27T08:29:51.525Z" itemprop="datePublished">2020-10-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/">C语言第八周</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遇到的一些问题</p>
+<p>分段函数程序：</p>
+<p>优化：最后一个else if直接写else即可不需要再说明前面剩下的条件作为限制条件了</p>
+<p>次幂表示方法x平方：#include &lt;stdio.h&gt;……pow(x,2)</p>
+<p>或x*x</p>
+<p>问题：算式中的5x要记得改写成5*x</p>
+<p>年月的程序：</p>
+<p>闰年的算法    else if(((y%4)==0)&amp;&amp;(y%100)!=0||(y%400==0))</p>
+<p>还有就是，在输完printf里面的中文以后，忘记切语言了，导致该语句后的分号是全角的，使得程序报错无法运行</p>
+<p>交换数的程序：</p>
+<p>1）三个赋值语句完成两数交换</p>
+<p>2）通过位运算的方式达成两数互换</p>
+<p>a.按位与&amp;：1为真0为假按照命题中且来运算     如果操作数相应的为均为1，则该位为1，否则为0</p>
+<p>b.按位异或^：一样取0不同取1      如果操作数的位相同则为0，相异则为1</p>
+<p>c.按位或|：命题或的思维      操作数相应的位均为0则该位为0，否则为1</p>
+<p>判断奇数和偶数的程序：</p>
+<p>我是希望通过使用if语句和赋值语句共同完成的，但是发现一直无法输出为偶数的情况</p>
+<p>发现是因为写做了n=0而非n==0数学的想法和语法冲突了，出现了赋值语句和判断语句之间的歧义，于是一直无法输出为偶数的情况</p>
+<p>还有就是总是忘记在scanf语句里在变量前面加&amp;的符号</p>
+<p>水仙花数的程序：</p>
+<p>使用三目运算符想做出判断，但遇到想输出Yes和No但不知道如何输出的问题，实在不知道如何解决，只能再嵌套一个if然后通过printf去直接输出</p>
+<p>输出分数的程序：</p>
+<p>不知道如何输出分数</p>
+<p>int和float都会把我输入进去的分数给吞了，没办法只能用%d/%d暴力输入分数</p>
+<p>由于要输入的内容包含加号属于一个式子，所以要定义一个字符型常量便于输出加号</p>
+<p>紧接着遇到不知道暴力输入的分数如何运算的问题（输入进去但仍不知如何运算，因赋值语句左侧不能为算式）</p>
+<p>解决方法也是很暴力，也就是再定义两个整型变量强行让分子和分子运算，分母和分母运算</p>
+<p>然后再用%d/%d的形式强行输出为分式</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="ckht9da4c00047kwtd46t1d7c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-SQL第七周" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" class="article-date">
@@ -182,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckht8g4cj000cj0wt81qv1lbo" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckht9da4e00087kwt3i934uns" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckht8g4ck000ej0wt7tma7d2s" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckht9da4i000f7kwt9emue9zb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -309,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="ckht8g4ce0003j0wt296fck4a" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="ckht9da4b00027kwthjjyeilc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -847,7 +911,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/PHP%E5%8F%98%E9%87%8F/" data-id="ckht8g4cp000ij0wtc2hc48in" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/PHP%E5%8F%98%E9%87%8F/" data-id="ckht9da4m000j7kwt71wfbmt0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -894,7 +958,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" data-id="ckht8g4cg0007j0wt5le425a3" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" data-id="ckht9da4e00097kwtdxj4c6qg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -951,7 +1015,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" data-id="ckht8g4ch0008j0wt3d0qh0o3" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" data-id="ckht9da4d00077kwt4vmr2cyz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1152,7 +1216,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="ckht8g4cm000hj0wtdzk5gk4a" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="ckht9da4j000i7kwt7nqsaask" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1189,7 +1253,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/10/%E6%A0%87%E9%A2%98/" data-id="ckht8g4cl000gj0wt1duu7z2t" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/10/%E6%A0%87%E9%A2%98/" data-id="ckht9da4i000g7kwt8zww81zh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1238,7 +1302,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/10/hello-world/" data-id="ckht8g4ch000aj0wteyl3cwud" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/10/hello-world/" data-id="ckht9da4h000d7kwt5ksh2yxi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1284,6 +1348,10 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       <ul>
         
           <li>
+            <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/">SQL，php第十二周</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">C语言第十一周</a>
           </li>
         
@@ -1297,10 +1365,6 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
         
           <li>
             <a href="/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/">C语言第十周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/14/Best/">Best</a>
           </li>
         
       </ul>
