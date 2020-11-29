@@ -66,6 +66,106 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-C语言第九周" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" class="article-date">
+  <time datetime="2020-11-02T09:20:54.474Z" itemprop="datePublished">2020-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/">C语言第九周</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>切换进制的程序：若输出%x则十六进制内包含的字母为小写，若输出%X则输出的十六进制中包含的字母为大写</p>
+<p>&amp;意味着取地址（若本省就是地址则不需要取地址例如数组名）</p>
+<p>中级教师加工资的程序：if语句里面限制输入什么字母的时候，字母不加单引号，且用==连接做出判断</p>
+<p>给老师涨工资的程序：#include &lt;stdio.h&gt;<br>int main()<br>{<br>    char ch;<br>    int n;<br>    scanf(“%c%d”,&amp;ch,&amp;n);<br>    if(ch==’j’||ch==’s’||ch==’y’||ch==’g’||ch==’z’)<br>    {<br>        n=n+500;<br>        printf(“%d”,n);<br>    }<br>    else printf(“%d”,n);<br>}</p>
+<p>以上是最终成功的结果</p>
+<p>j，s，y，g，z可以不需要定义直接用</p>
+<p>if语句里面的条件不能写作ch==’j’||’s’…(这样是不行的)</p>
+<p>发现这个错误的方法：在不断尝试排除了其他部分的错误以后，基本上能把错误锁定在这条语句上了，然后把后面所以的或的部分删去了以后，发现是成立的，这个程序能够成功把a筛选掉，能够实现只给j加工资而不给a等其他字母加工资。于是乎错误的范围就进一步的缩小了。</p>
+<p>用Switch语句实现计算多地快递费的程序：</p>
+<p>首先，是取整的问题，想要把所有不足1kg的小数部分都进位，于是乎用到了if语句进行条件的筛选，再新定义一个整型变量c，令该新变量的值为b强制类型转换为整型后的值。通过判断b与其强制类型以后的值的大小，可以判断b是否存在小数部分，若存在，则需要在c的基础上加一，若不存在，其值即与c相等。</p>
+<p>然后就是switch语句的部分了，这部分最开始遇到的问题，就是switch后面的括号内表达式的格式总是不合法，然后，直接定义a/1作为其条件的表达式，使其取值为本身，然后用case分地区使其按不同的地区分类价格分别计算快递费。</p>
+<p>还有遇到的问题：就是一开始强制类型转换的时候不知道应该摆在什么位置合适。</p>
+<p>一开始放在switch后面发现无处筛选a来实现分地区的计算，于是将其放在前面作为一个赋值语句单独存在。</p>
+<p>最开始被我写作了b=(int)(b+1)</p>
+<p>这样写会产生的问题很显然的，当b为含小数部分的值的时候并不存在问题，但是，一旦当b为不含小数部分的时候就发现了，这个b会因为我写的这个赋值语句平白无故加上了1，自然的后面的快递费的计算也就跟着错误了。</p>
+<p>为了解决这一问题，引入了if语句，还有定义了一个新的整型变量对其进行辅助作用，也就是前面提到的筛选，最后，通过筛选该程序得以实现。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="cki39ngz200058kwt9r225aib" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-基本概念理解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" class="article-date">
+  <time datetime="2020-10-31T07:56:29.327Z" itemprop="datePublished">2020-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/">笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>B/S架构即浏览器/服务器架构</p>
+<p>客户端可以通过统一的应用层协议（HTTP协议）与Web服务器交互数据</p>
+<p>URL的标准格式：协议://服务器IP[:端口]/路径/[?查询]</p>
+<p>HTTP遵循请求和应答模型</p>
+<p>1）请求：</p>
+<p>eg：POST /login.php HTTP/1.1          //请求行</p>
+<p>HOST:<a target="_blank" rel="noopener" href="http://www.xxser.com/">www.xxser.com</a>                         //请求头</p>
+<p>User-Agent:Mozilla/5.0 (Windows NT 6.1; rv:15.0)   Gecko/20100101 Firefox/115.0</p>
+<p>​                                                                 //空白行，代表请求头结束</p>
+<p>Username=admin&amp;password=admin  //请求正文</p>
+<p>2）响应</p>
+<p>与HTTP请求对应的是HTTP响应，HTTP响应也由三部分内容组成，分别是相应行、响应头（消息报头）和消息正文（消息主题）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="cki39ngzb000i8kwtbd759xuy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C语言第八周" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" class="article-date">
@@ -120,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="ckht9da4c00047kwtd46t1d7c" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="cki39ngz200048kwt2ddsh8n2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckht9da4e00087kwt3i934uns" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="cki39ngz6000b8kwt4gu91u6b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -296,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckht9da4i000f7kwt9emue9zb" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="cki39ngza000h8kwt80vy459l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -373,7 +473,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="ckht9da4b00027kwthjjyeilc" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="cki39ngz300068kwthwty6yyx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -911,7 +1011,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/PHP%E5%8F%98%E9%87%8F/" data-id="ckht9da4m000j7kwt71wfbmt0" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/PHP%E5%8F%98%E9%87%8F/" data-id="cki39ngzg000l8kwt1qsr9tnc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -958,7 +1058,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" data-id="ckht9da4e00097kwtdxj4c6qg" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" data-id="cki39ngz5000a8kwtcm02h4uq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1015,7 +1115,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" data-id="ckht9da4d00077kwt4vmr2cyz" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" data-id="cki39ngz500098kwt1duigg5t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1216,93 +1316,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="ckht9da4j000i7kwt7nqsaask" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-标题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/10/%E6%A0%87%E9%A2%98/" class="article-date">
-  <time datetime="2020-10-10T13:02:58.968Z" itemprop="datePublished">2020-10-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/10/%E6%A0%87%E9%A2%98/">标题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>随便输</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/10/%E6%A0%87%E9%A2%98/" data-id="ckht9da4i000g7kwt8zww81zh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/10/hello-world/" class="article-date">
-  <time datetime="2020-10-10T12:54:51.104Z" itemprop="datePublished">2020-10-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/10/hello-world/" data-id="ckht9da4h000d7kwt5ksh2yxi" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="cki39ngzg000k8kwt5hxk781d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1316,7 +1330,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页 &amp;raquo;</a>
   </nav>
 
 </section>
@@ -1348,6 +1362,14 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       <ul>
         
           <li>
+            <a href="/2020/11/29/CCCCC/">CCCCC</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/29/C12/">C12</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/">SQL，php第十二周</a>
           </li>
         
@@ -1357,14 +1379,6 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
         
           <li>
             <a href="/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">SQL第十一周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/15/Best2/">Best2</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/">C语言第十周</a>
           </li>
         
       </ul>

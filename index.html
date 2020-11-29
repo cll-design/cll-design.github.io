@@ -66,6 +66,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CCCCC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/29/CCCCC/" class="article-date">
+  <time datetime="2020-11-29T14:55:27.969Z" itemprop="datePublished">2020-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/29/CCCCC/">CCCCC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>逻辑结构上一个挨一个的数据，在实际存储时，并没有像顺序表那样也相互紧挨着。恰恰相反，数据随机分布在内存中的各个位置，这种存储结构称为线性表的链式存储。</p>
+<p>由于分散存储，为了能够体现出数据元素之间的逻辑关系，每个数据元素在存储的同时，要配备一个指针，用于指向它的直接后继元素，即每一个数据元素都指向下一个数据元素（最后一个指向NULL(空)）。当每一个数据元素都和它下一个数据元素用指针链接在一起时，就形成了一个链，这个链子的头就位于第一个数据元素，这样的存储方式就是链式存储。<br>线性表的链式存储结构生成的表，称作“链表”。</p>
+<p>每个元素本身由两部分组成：<br>本身的信息，称为“数据域”；<br>指向直接后继的指针，称为“指针域”。</p>
+<p>这两部分信息组成数据元素的存储结构，称之为“结点”。n个结点通过指针域相互链接，组成一个链表。</p>
+<p>由于每个结点中只包含一个指针域，生成的链表又被称为 线性链表 或 单链表。</p>
+<p>链表中存放的不是基本数据类型，需要用结构体实现自定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Link&#123;    </span><br><span class="line">char elem;&#x2F;&#x2F;代表数据域    </span><br><span class="line">struct Link * next;&#x2F;&#x2F;代表指针域，指向直接后继元素</span><br><span class="line">&#125;link;</span><br></pre></td></tr></table></figure>
+
+<p>头结点：有时，在链表的第一个结点之前会额外增设一个结点，结点的数据域一般不存放数据（有些情况下也可以存放链表的长度等信息），此结点被称为头结点。<br>若头结点的指针域为空（NULL），表明链表是空表。头结点对于链表来说，不是必须的，在处理某些问题时，给链表添加头结点会使问题变得简单。</p>
+<p>首元结点：链表中第一个元素所在的结点，它是头结点后边的第一个结点。</p>
+<p>头指针：永远指向链表中第一个结点的位置（如果链表有头结点，头指针指向头结点；否则，头指针指向首元结点）。<br>头结点和头指针的区别：头指针是一个指针，头指针指向链表的头结点或者首元结点；头结点是一个实际存在的结点，它包含有数据域和指针域。两者在程序中的直接体现就是：头指针只声明而没有分配存储空间，头结点进行了声明并分配了一个结点的实际物理内存。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/29/CCCCC/" data-id="cki39ngz100038kwtdrpahlyl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C12" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/29/C12/" class="article-date">
+  <time datetime="2020-11-29T14:55:23.927Z" itemprop="datePublished">2020-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/29/C12/">C12</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ss4.3B </p>
+<p>两个for语句循环嵌套实现输出一个二位数组</p>
+<p>{}内定义的变量在{}外失效需重新定义</p>
+<p>用两个for语句的循环嵌套读出二维数组的每一列</p>
+<p>定义一个新数组记住每一列求的和的值</p>
+<p>每算完一列要将sum归零，这样才不影响计算下一列</p>
+<p>为了利用i的循环体，可以按顺序变换列，要在第一个for里第二个for外</p>
+<p>总：可以尝试将一些东西适当地放在两个嵌套的for语句之间</p>
+<p>C强制赋值 暂时不会其他的方式。。。</p>
+<p>想试试看对称判断是否可以</p>
+<p>***if for while语句养成加括号的意识</p>
+<p>检查时先检查符号什么的比如scanf里面的&amp;有没有漏一般漏掉这个不会报错但是会影响输入位，类似的如果printf里面加了&amp;那么就变成取地址了如果格式对会出现地址？如果不对会出现一大长串数字（这种一般是出现了错误吧？）</p>
+<p>/4.0</p>
+<p>==是判断</p>
+<p>=是赋值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/29/C12/" data-id="cki39ngz000028kwtchgrew3h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-SQL第十一周 (2)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/" class="article-date">
@@ -108,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/" data-id="ckht9da4g000c7kwt9nop120v" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/" data-id="cki39ngz7000d8kwtbvya2bjw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="ckht9da4c00057kwthcqmfc5p" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="cki39ngz400088kwt0x9e3j30" class="article-share-link">Share</a>
       
       
     </footer>
@@ -194,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="ckht9da4f000b7kwt9k9cdt1r" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="cki39ngz7000c8kwt6ibwgv08" class="article-share-link">Share</a>
       
       
     </footer>
@@ -252,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/15/Best2/" data-id="ckht9da4a00017kwt2c9n89nu" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/15/Best2/" data-id="cki39ngyz00018kwt0rfu99fu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +386,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckht9da4d00067kwt39afbcck" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="cki39ngz300078kwte6tu0ijx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -357,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckht9da4600007kwtc94r88t6" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/Best/" data-id="cki39ngyp00008kwtglehfo4a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -419,7 +517,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckht9da4h000e7kwt0cxico55" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="cki39ngz9000f8kwt9e7z6sdb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -522,107 +620,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckht9da4f000a7kwtevgc91pr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C语言第九周" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" class="article-date">
-  <time datetime="2020-11-02T09:20:54.474Z" itemprop="datePublished">2020-11-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/">C语言第九周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>切换进制的程序：若输出%x则十六进制内包含的字母为小写，若输出%X则输出的十六进制中包含的字母为大写</p>
-<p>&amp;意味着取地址（若本省就是地址则不需要取地址例如数组名）</p>
-<p>中级教师加工资的程序：if语句里面限制输入什么字母的时候，字母不加单引号，且用==连接做出判断</p>
-<p>给老师涨工资的程序：#include &lt;stdio.h&gt;<br>int main()<br>{<br>    char ch;<br>    int n;<br>    scanf(“%c%d”,&amp;ch,&amp;n);<br>    if(ch==’j’||ch==’s’||ch==’y’||ch==’g’||ch==’z’)<br>    {<br>        n=n+500;<br>        printf(“%d”,n);<br>    }<br>    else printf(“%d”,n);<br>}</p>
-<p>以上是最终成功的结果</p>
-<p>j，s，y，g，z可以不需要定义直接用</p>
-<p>if语句里面的条件不能写作ch==’j’||’s’…(这样是不行的)</p>
-<p>发现这个错误的方法：在不断尝试排除了其他部分的错误以后，基本上能把错误锁定在这条语句上了，然后把后面所以的或的部分删去了以后，发现是成立的，这个程序能够成功把a筛选掉，能够实现只给j加工资而不给a等其他字母加工资。于是乎错误的范围就进一步的缩小了。</p>
-<p>用Switch语句实现计算多地快递费的程序：</p>
-<p>首先，是取整的问题，想要把所有不足1kg的小数部分都进位，于是乎用到了if语句进行条件的筛选，再新定义一个整型变量c，令该新变量的值为b强制类型转换为整型后的值。通过判断b与其强制类型以后的值的大小，可以判断b是否存在小数部分，若存在，则需要在c的基础上加一，若不存在，其值即与c相等。</p>
-<p>然后就是switch语句的部分了，这部分最开始遇到的问题，就是switch后面的括号内表达式的格式总是不合法，然后，直接定义a/1作为其条件的表达式，使其取值为本身，然后用case分地区使其按不同的地区分类价格分别计算快递费。</p>
-<p>还有遇到的问题：就是一开始强制类型转换的时候不知道应该摆在什么位置合适。</p>
-<p>一开始放在switch后面发现无处筛选a来实现分地区的计算，于是将其放在前面作为一个赋值语句单独存在。</p>
-<p>最开始被我写作了b=(int)(b+1)</p>
-<p>这样写会产生的问题很显然的，当b为含小数部分的值的时候并不存在问题，但是，一旦当b为不含小数部分的时候就发现了，这个b会因为我写的这个赋值语句平白无故加上了1，自然的后面的快递费的计算也就跟着错误了。</p>
-<p>为了解决这一问题，引入了if语句，还有定义了一个新的整型变量对其进行辅助作用，也就是前面提到的筛选，最后，通过筛选该程序得以实现。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckht9da4c00037kwta3xm7778" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-基本概念理解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" class="article-date">
-  <time datetime="2020-10-31T07:56:29.327Z" itemprop="datePublished">2020-10-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/">笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>B/S架构即浏览器/服务器架构</p>
-<p>客户端可以通过统一的应用层协议（HTTP协议）与Web服务器交互数据</p>
-<p>URL的标准格式：协议://服务器IP[:端口]/路径/[?查询]</p>
-<p>HTTP遵循请求和应答模型</p>
-<p>1）请求：</p>
-<p>eg：POST /login.php HTTP/1.1          //请求行</p>
-<p>HOST:<a target="_blank" rel="noopener" href="http://www.xxser.com/">www.xxser.com</a>                         //请求头</p>
-<p>User-Agent:Mozilla/5.0 (Windows NT 6.1; rv:15.0)   Gecko/20100101 Firefox/115.0</p>
-<p>​                                                                 //空白行，代表请求头结束</p>
-<p>Username=admin&amp;password=admin  //请求正文</p>
-<p>2）响应</p>
-<p>与HTTP请求对应的是HTTP响应，HTTP响应也由三部分内容组成，分别是相应行、响应头（消息报头）和消息正文（消息主题）。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="ckht9da4j000h7kwt14iedqkp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="cki39ngz8000e8kwt8t6y2z12" class="article-share-link">Share</a>
       
       
     </footer>
@@ -636,7 +634,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
   </nav>
 
 </section>
@@ -668,6 +666,14 @@
       <ul>
         
           <li>
+            <a href="/2020/11/29/CCCCC/">CCCCC</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/29/C12/">C12</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/">SQL，php第十二周</a>
           </li>
         
@@ -677,14 +683,6 @@
         
           <li>
             <a href="/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">SQL第十一周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/15/Best2/">Best2</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/">C语言第十周</a>
           </li>
         
       </ul>
