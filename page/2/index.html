@@ -66,6 +66,171 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-SQL第十周" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" class="article-date">
+  <time datetime="2020-11-10T11:59:56.358Z" itemprop="datePublished">2020-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/">SQL第十周</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>concat()   连接</p>
+<p>concat_ws()   WS: with seperator (使用分隔符)</p>
+<p>group_concat()    返回带有来自一个组的链接的非NULL值的字符串的结果</p>
+<p>sys.databases SQL Sever 中的所有数据库</p>
+<p>sys.sql_logins SQL Sever  中的所有登录名</p>
+<p>information_schema.tables  当前用户数据库中的表</p>
+<p>information_schema.columns当前用户数据库中的列</p>
+<p>sys.all_columns 用户定义对象和系统对象的所有列的联合</p>
+<p>sys.database_principals 数据库中每个权限或异常权限</p>
+<p>sys.database_files 存储在数据库中的数据库文件</p>
+<p>sysobjects 数据库中创建的每个对象（例如约束、日志以及存储过程）</p>
+<p>双查询注入：嵌套，从内向外</p>
+<p>1.left()函数：left(database(),1)=’s’     left(a,b)从左侧截取a的前b位，正确则返回1，错误则返回0</p>
+<p>2.regexp函数：select use() regexp ‘r’   从左往右匹配，user()的结果是root,regexp为匹配root的正则表达式</p>
+<p>3.like函数：select users() like ‘ro%’    匹配与regexp相似</p>
+<p>4.substr(a,b,c) select substr()  xxxx     substr(a,b,c)从位置b开始，截取a字符串c位长度</p>
+<p>5.ascii()                                                     将某字符转化为ascii值</p>
+<p>6.chr(数字)   或者是ord(‘字母’)             使用python中的两个函数可以判断当前的ascii值是多少</p>
+<p>对于security数据库：</p>
+<p>select left(databse(),1)=’s’;   第一位是否是s</p>
+<p>select databse() regexp ‘s’;  匹配第一个字符是否是s</p>
+<p>select database() like ‘s%’;   匹配第一个字符是否是s</p>
+<p>select substr((select database()),1,1)=’s’;   匹配的第一个字符是否是s</p>
+<p>select substr((select database()),1,3)=’sec’;    匹配的前三个字符是否是sec</p>
+<p>select ascii(substr((select database())1,1));     直接回显115 或者是:</p>
+<p>select ascii(substr((select database()),1,1))&gt;110;  如果大于110，就会返回1，否则返回0.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckid9zxop000i4owth39k0998" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-SQL第九周" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" class="article-date">
+  <time datetime="2020-11-06T14:19:56.718Z" itemprop="datePublished">2020-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/">SQL第九周</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySQL 语法版（规定的需要返回值的数目）<br>SELECT column_name(s)<br>FROM table_name<br>LIMIT number;（取头number条数据）</p>
+<p>此外，以下操作在 Microsoft SQL Server 数据库中可执行</p>
+<p>SELECT TOP 50 PERCENT * FROM Websites;</p>
+<p>SQL LIKE操作符</p>
+<p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。</p>
+<p>SQL LIKE语法</p>
+<p>SELECT <em>column_name(s)</em><br>FROM <em>table_name</em><br>WHERE <em>column_name</em> LIKE <em>pattern</em>;</p>
+<p>%g：以g结尾</p>
+<p>g%：以g开头</p>
+<p>%g%包含g</p>
+<p>%g_：倒数第二个是g</p>
+<p>eg：SELECT * FROM Websites<br>WHERE name LIKE ‘G_o_le’;</p>
+<p>SQL通配符</p>
+<table>
+<thead>
+<tr>
+<th align="left">通配符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">%</td>
+<td align="left">替代 0 个或多个字符</td>
+</tr>
+<tr>
+<td align="left">_</td>
+<td align="left">替代一个字符</td>
+</tr>
+<tr>
+<td align="left">[<em>charlist</em>]</td>
+<td align="left">字符列中的任何单一字符</td>
+</tr>
+<tr>
+<td align="left">[^<em>charlist</em>] 或 [!<em>charlist</em>]</td>
+<td align="left">不在字符列中的任何单一字符</td>
+</tr>
+</tbody></table>
+<p>使用 SQL [charlist] 通配符<br>MySQL 中使用 REGEXP 或 NOT REGEXP 运算符 (或 RLIKE 和 NOT RLIKE) 来操作正则表达式。</p>
+<p>下面的 SQL 语句选取 name 以 “G”、”F” 或 “s” 开始的所有网站：</p>
+<p>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[GFs]’;</p>
+<p>下面的 SQL 语句选取 name 以 A 到 H 字母开头的网站：</p>
+<p>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[A-H]’;</p>
+<p>下面的 SQL 语句选取 name 不以 A 到 H 字母开头的网站：<br>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[^A-H]’;</p>
+<p>IN 操作符<br>IN 操作符允许在 WHERE 子句中规定多个值。</p>
+<p>SQL IN 语法<br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name IN (value1,value2,…);</p>
+<p>SQL BETWEEN 操作符<br>BETWEEN 操作符选取介于两个值之间的数据范围内的值。这些值可以是数值、文本或者日期。</p>
+<p>SQL BETWEEN 语法<br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name BETWEEN value1 AND value2;</p>
+<p>带有 IN 的 BETWEEN 操作符<br>下面的 SQL 语句选取 alexa 介于 1 和 20 之间但 country 不为 USA 和 IND 的所有网站：</p>
+<p>SELECT * FROM Websites<br>WHERE (alexa BETWEEN 1 AND 20)<br>AND country NOT IN (‘USA’, ‘IND’);</p>
+<p>SQL别名（简化，不影响原表/列的名称）</p>
+<p>列的 SQL 别名语法<br>SELECT column_name AS alias_name<br>FROM table_name;<br>表的 SQL 别名语法<br>SELECT column_name(s)<br>FROM table_name AS alias_name;</p>
+<p>SQL JOIN<br>SQL JOIN 子句用于把来自两个或多个表的行结合起来，基于这些表之间的共同字段。</p>
+<p>SQL INNER JOIN 关键字<br>INNER JOIN 关键字在表中存在至少一个匹配时返回行。</p>
+<p>SQL INNER JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>INNER JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
+<p>SELECT column_name(s)<br>FROM table1<br>JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：INNER JOIN 与 JOIN 是相同的。</p>
+<p>SQL LEFT JOIN 关键字<br>LEFT JOIN 关键字从左表（table1）返回所有的行，即使右表（table2）中没有匹配。如果右表中没有匹配，则结果为 NULL。</p>
+<p>SQL LEFT JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>LEFT JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
+<p>SELECT column_name(s)<br>FROM table1<br>LEFT OUTER JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：在某些数据库中，LEFT JOIN 称为 LEFT OUTER JOIN。</p>
+<p>SQL RIGHT JOIN 关键字<br>RIGHT JOIN 关键字从右表（table2）返回所有的行，即使左表（table1）中没有匹配。如果左表中没有匹配，则结果为 NULL。</p>
+<p>SQL RIGHT JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>RIGHT JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
+<p>SELECT column_name(s)<br>FROM table1<br>RIGHT OUTER JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：在某些数据库中，RIGHT JOIN 称为 RIGHT OUTER JOIN。</p>
+<p>MySQL中不支持 FULL OUTER JOIN</p>
+<p>总的来说：A inner join B 取交集。</p>
+<p>A left join B 取 A 全部，B 没有对应的值为 null。</p>
+<p>A right join B 取 B 全部 A 没有对应的值为 null。</p>
+<p>A full outer join B 取并集，彼此没有对应的值为 null。</p>
+<p>对应条件在 on 后面填写。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckid9zxon000e4owt7op7db9w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C语言第九周" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" class="article-date">
@@ -108,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="cki39p52900054cwtdpxq26p8" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="ckid9zxoi00064owt36jw6e86" class="article-share-link">Share</a>
       
       
     </footer>
@@ -156,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="cki39p52h000i4cwt8t03f2xs" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="ckid9zxop000k4owt0w2sd8q5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -220,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="cki39p52a00064cwt6xf89hmo" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" data-id="ckid9zxoj00074owtejl618x3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -346,7 +511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="cki39p52d000b4cwt08k916ug" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/22/SQL%E7%AC%AC%E4%B8%83%E5%91%A8/" data-id="ckid9zxol000b4owt6mbp7woi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -396,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="cki39p52g000h4cwtasg31enj" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/%E4%B8%A4%E5%A4%A9%E4%B8%80%E5%A4%9C/" data-id="ckid9zxoo000h4owt8w7599es" class="article-share-link">Share</a>
       
       
     </footer>
@@ -473,7 +638,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="cki39p52800044cwthtczbd19" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/20/C%E8%AF%AD%E8%A8%80/" data-id="ckid9zxoi00054owt75fk0pbg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1011,7 +1176,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/PHP%E5%8F%98%E9%87%8F/" data-id="cki39p52l000l4cwtfzhq1cjl" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/PHP%E5%8F%98%E9%87%8F/" data-id="ckid9zxot000n4owt2qra2fvv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1058,265 +1223,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" data-id="cki39p52c000a4cwt6ilxd2mo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Mysql有关" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" class="article-date">
-  <time datetime="2020-10-17T04:36:27.561Z" itemprop="datePublished">2020-10-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/17/Mysql%E6%9C%89%E5%85%B3/">Mysql有关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>MySQL 是关系型数据库</p>
-<ul>
-<li>表头(header): 每一列的名称;</li>
-<li>列(col): 具有相同数据类型的数据的集合;</li>
-<li>行(row): 每一行用来描述某条记录的具体信息;</li>
-<li>值(value): 行的具体信息, 每个值必须与该列的数据类型相同;</li>
-<li><strong>键(key)</strong>: 键的值在当前列中具有唯一性。</li>
-</ul>
-<p>RDBMS术语：</p>
-<ul>
-<li><strong>数据库:</strong> 数据库是一些关联表的集合。</li>
-<li><strong>数据表:</strong> 表是数据的矩阵。在一个数据库中的表看起来像一个简单的电子表格。</li>
-<li><strong>列:</strong> 一列(数据元素) 包含了相同类型的数据, 例如邮政编码的数据。</li>
-<li><strong>行：</strong>一行（=元组，或记录）是一组相关的数据，例如一条用户订阅的数据。</li>
-<li><strong>冗余</strong>：存储两倍数据，冗余降低了性能，但提高了数据的安全性。</li>
-<li><strong>主键</strong>：主键是唯一的。一个数据表中只能包含一个主键。你可以使用主键来查询数据。</li>
-<li><strong>外键：</strong>外键用于关联两个表。</li>
-<li><strong>复合键</strong>：复合键（组合键）将多个列作为一个索引键，一般用于复合索引。</li>
-<li><strong>索引：</strong>使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。</li>
-<li><strong>参照完整性:</strong> 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/17/Mysql%E6%9C%89%E5%85%B3/" data-id="cki39p52b00094cwtcpaxhv70" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-用Dev-c++学习c语言" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" class="article-date">
-  <time datetime="2020-10-12T13:54:58.211Z" itemprop="datePublished">2020-10-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/">用Dev-C++实现简单编程时遇到的一些问题及一些语法格式的记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>遇到的一些问题</p>
-<p>函数不用；结尾语句才是</p>
-<p>出现新变量需要定义出它，需注意其数据类型。（赋值）</p>
-<p>变量定义后，若没有给其存储空间里存放数据，则该空间的值是不确定的。</p>
-<p>scanf(“%lf”,&amp;km);(分号！)中需注意””包含内容的起止位置(有一次无法运行的原因)</p>
-<p>%7.2f的意思</p>
-<p>其中7指的是小数点前的位数无字符的部分用空格占据位置</p>
-<p>而小数点后的2表示精确到小数点后几位小数点后用零占据位置</p>
-<p>如果写作”%.2f”则对小数点前的位数不做出限制全部显示而对小数点后的精确度做出了限制</p>
-<p>printf(“”, );</p>
-<p>在printf函数中，格式说明符以外的字符按原样输出。%m.nf控制输出的结果中一共有m位，其中小数占n位。</p>
-<p>其中””中的内容以什么形式分隔开影响着输出中以什么形式分隔开</p>
-<p>输出数据后若出现空格是手动打在””中对应数据的后方的不是靠%.nf完成的</p>
-<p>输出时不要忘记打出格式说明符（不然会导致输出结果为空）</p>
-<p>遇到较大的常量时数据类型应选用double或表示范围更大的数据类型，否则当要表示的数据超过计算机所使用的数据的表示范围时，会产生数据的溢出。产生由数据溢出导致的计算结果错误。</p>
-<p>在一个C语言程序中必须有且只能有一个main（）函数，而且main（）函数可以在任何地方出现</p>
-<p>标识符的第一个字符必须是字母或者下划线（否则就被视为不合法字符）</p>
-<p>“void”不是标识符而是关键字</p>
-<p>do是关键字不能用做变量名</p>
-<p>实数以指数形式表示的时候，字母E或e后面的指数必须为整数，且E或e之前必须有数字。</p>
-<p>关于错误： [Error] ld returned 1 exit status</p>
-<ol>
-<li>编译器正在执行刚刚的程序还没关；小黑框还在。<br>解决措施：关闭小黑框</li>
-<li>定义的函数和调用的函数名字不一样，也会造成产生这种错误！！</li>
-</ol>
-<p>输入int main()时漏了()</p>
-<p>4    2    C:\clldzy\未命名12.cpp    [Error] expected primary-expression before ‘char’</p>
-<p>漏了分号</p>
-<p>5    2    C:\clldzy\未命名12.cpp    [Error] expected initializer before ‘b’</p>
-<p>6    14    C:\clldzy\未命名12.cpp    [Error] ‘b’ was not declared in this scope</p>
-<p>%f和%lf分别是float类型和baidouble类型用于格式化输入输du出时对应的格式符号。<br>其中：zhi<br>float，单精度dao浮点型，对应%f.<br>double,双精度浮点型，对应%lf.<br>在用于输出时:<br>float类型可以使用%lf格式，但不会有任何好处。<br>double类型如果使用了%f格式可能会导致输出错误。<br>在用于输入时:<br>double 类型使用了%f格式，会导致输入值错误。<br>float类型使用double类型不仅会导致输入错误，还可能引起程序崩溃。<br>所以在输入输出时，一定要区分好double和float，而使用对应的格式符号。</p>
-<p>C语言运算符的优先级</p>
-<table>
-<thead>
-<tr>
-<th align="left">类别</th>
-<th align="left">运算符</th>
-<th align="left">结合性</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">后缀</td>
-<td align="left">() [] -&gt; . ++ - -</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">一元</td>
-<td align="left">+ - ! ~ ++ - - (type)* &amp; sizeof</td>
-<td align="left">从右到左</td>
-</tr>
-<tr>
-<td align="left">乘除</td>
-<td align="left">* / %</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">加减</td>
-<td align="left">+ -</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">移位</td>
-<td align="left">&lt;&lt; &gt;&gt;</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">关系</td>
-<td align="left">&lt; &lt;= &gt; &gt;=</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">相等</td>
-<td align="left">== !=</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">位与 AND</td>
-<td align="left">&amp;</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">位异或 XOR</td>
-<td align="left">^</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">位或 OR</td>
-<td align="left">|</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">逻辑与 AND</td>
-<td align="left">&amp;&amp;</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">逻辑或 OR</td>
-<td align="left">||</td>
-<td align="left">从左到右</td>
-</tr>
-<tr>
-<td align="left">条件</td>
-<td align="left">?:</td>
-<td align="left">从右到左</td>
-</tr>
-<tr>
-<td align="left">赋值</td>
-<td align="left">= += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=</td>
-<td align="left">从右到左</td>
-</tr>
-<tr>
-<td align="left">逗号</td>
-<td align="left">,</td>
-<td align="left">从左到右</td>
-</tr>
-</tbody></table>
-<p>语法格式</p>
-<p>1.文件包含</p>
-<p>#include &lt;文件名&gt;</p>
-<p>或</p>
-<p>#include“文件名”</p>
-<p>2.变量的赋值</p>
-<p>  数据类型     变量名1=值1，变量名2=值2，…，变量名n=值n；</p>
-<p>eg：int a=3，b=4，c=5；</p>
-<p> 变量名1=值1；</p>
-<p>eg：int a，b，c；</p>
-<p>a=3；b=4；c=5；</p>
-<p>3.定义常变量</p>
-<p>const 数据类型 常变量名=初始值</p>
-<p>4.标准格式输出函数</p>
-<p>printf（格式控制序列，输出表格）；</p>
-<p>5.字符输入或输出函数</p>
-<p>putchar(ch);</p>
-<p>5.用对象流实现输入或输出</p>
-<p>a.标准输出流</p>
-<p>cin&gt;&gt;表达式1&lt;&lt;表达式2&lt;&lt;…&lt;&lt;表达式n；</p>
-<p>b.标准输出流cout</p>
-<p>cout&lt;&lt;表达式1&lt;&lt;表达式2&lt;&lt;…&lt;&lt;表达式n；</p>
-<p>6.赋值表达式</p>
-<p>变量名 赋值运算符 表达式</p>
-<p>(复合赋值运算符：变量名=变量名 运算符 表达式)</p>
-<p>7.关系表达式</p>
-<p>表达式1 关系运算符 表达式2</p>
-<p>8.逻辑表达式</p>
-<p>[表达式1] 逻辑运算符 表达式2</p>
-<p>9.位运算表达式</p>
-<p>~操作数</p>
-<p>10.按位左移运算</p>
-<p>操作数&lt;&lt;左位移数</p>
-<p>11.按右位移运算</p>
-<p>操作数&gt;&gt;右位移数</p>
-<p>12.按位与运算</p>
-<p>操作数1&amp;操作数2</p>
-<p>13.按位异或运算</p>
-<p>操作数1^操作数2</p>
-<p>14.按位或运算</p>
-<p>操作数1|操作数2</p>
-<p>15.条件表达式</p>
-<p>判定式？表达式1：表达式2</p>
-<p>16.逗号表达式</p>
-<p>表达式1，表达式2，…表达式n</p>
-<p>17.求字节表达式</p>
-<p>sizeo(类型名|变量名)</p>
-<p>18.强制类型转换</p>
-<p>(类型名)(表达式)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/12/%E7%94%A8Dev-c++%E5%AD%A6%E4%B9%A0c%E8%AF%AD%E8%A8%80/" data-id="cki39p52i000k4cwt9xbx2uz5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/17/PHP%E6%A6%82%E8%BF%B0%EF%BC%9F/" data-id="ckid9zxom000c4owt1fil4hon" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1349,7 +1256,7 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
     </div>
   </div>
 
@@ -1362,6 +1269,14 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
       <ul>
         
           <li>
+            <a href="/2020/12/06/http------/">http-----</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/06/Cccccc/">Ccccccc</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/29/CCCCC/">CCCCC</a>
           </li>
         
@@ -1371,14 +1286,6 @@ break; default:    如果 n 既不等于 label1 也不等于 label2，此处代�
         
           <li>
             <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/">SQL，php第十二周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">C语言第十一周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">SQL第十一周</a>
           </li>
         
       </ul>

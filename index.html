@@ -66,6 +66,117 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-http------" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/http------/" class="article-date">
+  <time datetime="2020-12-06T14:53:35.624Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/http------/">http-----</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>http就是超文本传输协议</p>
+<p>是WEB服务器传输超文本标记语言HTML到本地浏览器的传输协议</p>
+<p>基于TCP/IP通信协议来传递数据</p>
+<p>HTTP协议一般用于B/S架构，浏览器作为HTTP客户端通过URL（地址）向HTTP服务端即WEB服务器发送所有请求。</p>
+<p>HTTP特点<br>http协议支持客户端/服务端模式，也是一种请求/响应模式的协议。<br>简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。<br>灵活：HTTP允许传输任意类型的数据对象。传输的类型由Content-Type加以标记。<br>无连接：限制每次连接只处理一个请求。服务器处理完请求，并收到客户的应答后，即断开连接，但是却不利于客户端与服务器保持会话连接，为了弥补这种不足，产生了两项记录http状态的技术，一个叫做Cookie,一个叫做Session。<br>无状态：无状态是指协议对于事务处理没有记忆，后续处理需要前面的信息，则必须重传。</p>
+<p>URI统一资源标识符 知道资源是什么</p>
+<p>URL统一资源定位符 知道资源的地址</p>
+<p>请求报文构成</p>
+<p>请求行：包括请求方法、URL、协议/版本<br>请求头(Request Header)<br>请求正文</p>
+<p>响应报文构成</p>
+<p>状态行</p>
+<p>响应头</p>
+<p>响应正文</p>
+<p>常见请求方法get、post、head、put、delete</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/http------/" data-id="ckid9zxoq000l4owt23tv1u0u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Cccccc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/Cccccc/" class="article-date">
+  <time datetime="2020-12-06T14:25:59.605Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/Cccccc/">Ccccccc</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>设计一个函数输出两数中较大的那个</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>int main(){</p>
+<p>​    int max(int a,int b);//函数声明</p>
+<p>​    int a,b,maxnum;</p>
+<p>​    scanf(“%d%d”,&amp;a,&amp;b);</p>
+<p>​    maxnum=max(a,b);//函数调用</p>
+<p>​    printf(“%d”,maxnum);<br>}</p>
+<p>int max(inta,int b){</p>
+<p>​    if(a&gt;b)  return a;</p>
+<p>else  return b;</p>
+<p>}</p>
+<p>设计一个函数输出输入两数相加绝对值之和</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int sum(int a,int b);<br>    int a,b,sumnum;<br>    scanf(“%d%d”,&amp;a,&amp;b);<br>    if(a&gt;0) a=0+a;<br>    else a=0-a;<br>    if(b&gt;0) b=0+b;<br>    else b=0-b;<br>    sumnum=sum(a,b);<br>    printf(“%d”,sumnum);<br>}<br>int sum(int a,int b){<br>    int c;<br>    c=a+b;<br>    return (c);<br>}</p>
+<p>求某数的某次幂</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int y(int x,int n);<br>    int x,n,ynum;<br>    scanf(“%d%d”,&amp;x,&amp;n);<br>    ynum=y(x,n);<br>    printf(“%d”,ynum);<br>}<br>int y(int x,int n){<br>    int t=x;<br>    while(n-1) {<br>    t=x*t;<br>    n–;<br>    }<br>    return t;<br>}</p>
+<p>第一组同学10岁之后每+1位+2岁求第n位同学的年龄</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int age(int n);<br>    int n,agenum;<br>    scanf(“%d”,&amp;n);<br>    agenum=age(n);<br>    printf(“%d”,agenum);<br>}<br>int age(int n){<br>    int t;<br>    t=10+(n-1)*2;<br>    return t;<br>}</p>
+<p>让数组值交换</p>
+<p>不要硬用函数</p>
+<p>数组定义位置，函数形参处出很多问题，而且函数不能返回两个值</p>
+<p>1、直接两个循环语句输入数组、一个for内嵌交换值的方法</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int a[10],b[10];<br>    int i,j;<br>    for(i=0;i&lt;10;i++){<br>        scanf(“%d”,&amp;a[i]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        scanf(“%d”,&amp;b[j]);<br>    }<br>    int t=0;<br>    for(i=0;i&lt;10;i++){<br>        t=a[i];<br>        a[i]=b[i];<br>        b[i]=t;<br>    }<br>    for(i=0;i&lt;10;i++){<br>        printf(“%d “,a[i]);<br>    }<br>    printf(“ “);<br>    for(j=0;j&lt;10;j++){<br>        printf(“%d “,b[j]);<br>    }<br>}</p>
+<p>2、可以选择用宏定义</p>
+<p>#include &lt;stdio.h&gt;<br>#define swap(x,y) int t=x;x=y;y=t;<br>int main(){<br>    int a[10],b[10];<br>    int i,j;<br>    for(i=0;i&lt;10;i++){<br>        scanf(“%d”,&amp;a[i]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        scanf(“%d”,&amp;b[j]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        swap(a[j],b[j]);<br>    }<br>    for(i=0;i&lt;10;i++){<br>        printf(“%d “,a[i]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        printf(“%d “,b[j]);<br>    }<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/Cccccc/" data-id="ckid9zxoh00044owt2f7m7158" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CCCCC" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/29/CCCCC/" class="article-date">
@@ -103,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/29/CCCCC/" data-id="cki39p52800034cwtfwl78p2i" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/29/CCCCC/" data-id="ckid9zxoh00034owtcaky1zv2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/29/C12/" data-id="cki39p52700024cwt99ikcvsk" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/29/C12/" data-id="ckid9zxof00014owtag1w7n3q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -206,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/" data-id="cki39p52e000d4cwtewtx9ikz" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/" data-id="ckid9zxom000d4owt98op48d5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -252,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="cki39p52a00074cwtgi2ae5z0" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="ckid9zxoj00084owt2j5vhmyx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -292,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="cki39p52f000e4cwt23zec5y0" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/" data-id="ckid9zxon000f4owtdhyk0f4h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -350,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/15/Best2/" data-id="cki39p52100004cwt98d563iw" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/15/Best2/" data-id="ckid9zxog00024owtdrfg8nb6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="cki39p52b00084cwth1iy71ei" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="ckid9zxok00094owta8cn2xck" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,172 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/Best/" data-id="cki39p52600014cwtaum75tbu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-SQL第十周" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" class="article-date">
-  <time datetime="2020-11-10T11:59:56.358Z" itemprop="datePublished">2020-11-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/">SQL第十周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>concat()   连接</p>
-<p>concat_ws()   WS: with seperator (使用分隔符)</p>
-<p>group_concat()    返回带有来自一个组的链接的非NULL值的字符串的结果</p>
-<p>sys.databases SQL Sever 中的所有数据库</p>
-<p>sys.sql_logins SQL Sever  中的所有登录名</p>
-<p>information_schema.tables  当前用户数据库中的表</p>
-<p>information_schema.columns当前用户数据库中的列</p>
-<p>sys.all_columns 用户定义对象和系统对象的所有列的联合</p>
-<p>sys.database_principals 数据库中每个权限或异常权限</p>
-<p>sys.database_files 存储在数据库中的数据库文件</p>
-<p>sysobjects 数据库中创建的每个对象（例如约束、日志以及存储过程）</p>
-<p>双查询注入：嵌套，从内向外</p>
-<p>1.left()函数：left(database(),1)=’s’     left(a,b)从左侧截取a的前b位，正确则返回1，错误则返回0</p>
-<p>2.regexp函数：select use() regexp ‘r’   从左往右匹配，user()的结果是root,regexp为匹配root的正则表达式</p>
-<p>3.like函数：select users() like ‘ro%’    匹配与regexp相似</p>
-<p>4.substr(a,b,c) select substr()  xxxx     substr(a,b,c)从位置b开始，截取a字符串c位长度</p>
-<p>5.ascii()                                                     将某字符转化为ascii值</p>
-<p>6.chr(数字)   或者是ord(‘字母’)             使用python中的两个函数可以判断当前的ascii值是多少</p>
-<p>对于security数据库：</p>
-<p>select left(databse(),1)=’s’;   第一位是否是s</p>
-<p>select databse() regexp ‘s’;  匹配第一个字符是否是s</p>
-<p>select database() like ‘s%’;   匹配第一个字符是否是s</p>
-<p>select substr((select database()),1,1)=’s’;   匹配的第一个字符是否是s</p>
-<p>select substr((select database()),1,3)=’sec’;    匹配的前三个字符是否是sec</p>
-<p>select ascii(substr((select database())1,1));     直接回显115 或者是:</p>
-<p>select ascii(substr((select database()),1,1))&gt;110;  如果大于110，就会返回1，否则返回0.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/10/SQL%E7%AC%AC%E5%8D%81%E5%91%A8/" data-id="cki39p52f000f4cwtd7q94dg0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-SQL第九周" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" class="article-date">
-  <time datetime="2020-11-06T14:19:56.718Z" itemprop="datePublished">2020-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/">SQL第九周</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>MySQL 语法版（规定的需要返回值的数目）<br>SELECT column_name(s)<br>FROM table_name<br>LIMIT number;（取头number条数据）</p>
-<p>此外，以下操作在 Microsoft SQL Server 数据库中可执行</p>
-<p>SELECT TOP 50 PERCENT * FROM Websites;</p>
-<p>SQL LIKE操作符</p>
-<p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。</p>
-<p>SQL LIKE语法</p>
-<p>SELECT <em>column_name(s)</em><br>FROM <em>table_name</em><br>WHERE <em>column_name</em> LIKE <em>pattern</em>;</p>
-<p>%g：以g结尾</p>
-<p>g%：以g开头</p>
-<p>%g%包含g</p>
-<p>%g_：倒数第二个是g</p>
-<p>eg：SELECT * FROM Websites<br>WHERE name LIKE ‘G_o_le’;</p>
-<p>SQL通配符</p>
-<table>
-<thead>
-<tr>
-<th align="left">通配符</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">%</td>
-<td align="left">替代 0 个或多个字符</td>
-</tr>
-<tr>
-<td align="left">_</td>
-<td align="left">替代一个字符</td>
-</tr>
-<tr>
-<td align="left">[<em>charlist</em>]</td>
-<td align="left">字符列中的任何单一字符</td>
-</tr>
-<tr>
-<td align="left">[^<em>charlist</em>] 或 [!<em>charlist</em>]</td>
-<td align="left">不在字符列中的任何单一字符</td>
-</tr>
-</tbody></table>
-<p>使用 SQL [charlist] 通配符<br>MySQL 中使用 REGEXP 或 NOT REGEXP 运算符 (或 RLIKE 和 NOT RLIKE) 来操作正则表达式。</p>
-<p>下面的 SQL 语句选取 name 以 “G”、”F” 或 “s” 开始的所有网站：</p>
-<p>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[GFs]’;</p>
-<p>下面的 SQL 语句选取 name 以 A 到 H 字母开头的网站：</p>
-<p>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[A-H]’;</p>
-<p>下面的 SQL 语句选取 name 不以 A 到 H 字母开头的网站：<br>SELECT * FROM Websites<br>WHERE name REGEXP ‘^[^A-H]’;</p>
-<p>IN 操作符<br>IN 操作符允许在 WHERE 子句中规定多个值。</p>
-<p>SQL IN 语法<br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name IN (value1,value2,…);</p>
-<p>SQL BETWEEN 操作符<br>BETWEEN 操作符选取介于两个值之间的数据范围内的值。这些值可以是数值、文本或者日期。</p>
-<p>SQL BETWEEN 语法<br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name BETWEEN value1 AND value2;</p>
-<p>带有 IN 的 BETWEEN 操作符<br>下面的 SQL 语句选取 alexa 介于 1 和 20 之间但 country 不为 USA 和 IND 的所有网站：</p>
-<p>SELECT * FROM Websites<br>WHERE (alexa BETWEEN 1 AND 20)<br>AND country NOT IN (‘USA’, ‘IND’);</p>
-<p>SQL别名（简化，不影响原表/列的名称）</p>
-<p>列的 SQL 别名语法<br>SELECT column_name AS alias_name<br>FROM table_name;<br>表的 SQL 别名语法<br>SELECT column_name(s)<br>FROM table_name AS alias_name;</p>
-<p>SQL JOIN<br>SQL JOIN 子句用于把来自两个或多个表的行结合起来，基于这些表之间的共同字段。</p>
-<p>SQL INNER JOIN 关键字<br>INNER JOIN 关键字在表中存在至少一个匹配时返回行。</p>
-<p>SQL INNER JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>INNER JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
-<p>SELECT column_name(s)<br>FROM table1<br>JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：INNER JOIN 与 JOIN 是相同的。</p>
-<p>SQL LEFT JOIN 关键字<br>LEFT JOIN 关键字从左表（table1）返回所有的行，即使右表（table2）中没有匹配。如果右表中没有匹配，则结果为 NULL。</p>
-<p>SQL LEFT JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>LEFT JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
-<p>SELECT column_name(s)<br>FROM table1<br>LEFT OUTER JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：在某些数据库中，LEFT JOIN 称为 LEFT OUTER JOIN。</p>
-<p>SQL RIGHT JOIN 关键字<br>RIGHT JOIN 关键字从右表（table2）返回所有的行，即使左表（table1）中没有匹配。如果左表中没有匹配，则结果为 NULL。</p>
-<p>SQL RIGHT JOIN 语法<br>SELECT column_name(s)<br>FROM table1<br>RIGHT JOIN table2<br>ON table1.column_name=table2.column_name;<br>或：</p>
-<p>SELECT column_name(s)<br>FROM table1<br>RIGHT OUTER JOIN table2<br>ON table1.column_name=table2.column_name;<br>注释：在某些数据库中，RIGHT JOIN 称为 RIGHT OUTER JOIN。</p>
-<p>MySQL中不支持 FULL OUTER JOIN</p>
-<p>总的来说：A inner join B 取交集。</p>
-<p>A left join B 取 A 全部，B 没有对应的值为 null。</p>
-<p>A right join B 取 B 全部 A 没有对应的值为 null。</p>
-<p>A full outer join B 取并集，彼此没有对应的值为 null。</p>
-<p>对应条件在 on 后面填写。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/06/SQL%E7%AC%AC%E4%B9%9D%E5%91%A8/" data-id="cki39p52e000c4cwt7ju53pg3" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/Best/" data-id="ckid9zxo600004owta8ikd1yg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -653,7 +599,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
     </div>
   </div>
 
@@ -666,6 +612,14 @@
       <ul>
         
           <li>
+            <a href="/2020/12/06/http------/">http-----</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/06/Cccccc/">Ccccccc</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/29/CCCCC/">CCCCC</a>
           </li>
         
@@ -675,14 +629,6 @@
         
           <li>
             <a href="/2020/11/22/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%20(2)/">SQL，php第十二周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/21/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">C语言第十一周</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/17/SQL%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8/">SQL第十一周</a>
           </li>
         
       </ul>

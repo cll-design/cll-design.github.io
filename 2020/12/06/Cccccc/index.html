@@ -5,17 +5,17 @@
   
 
   
-  <title>笔记 | cll-design</title>
+  <title>Ccccccc | cll-design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="B&#x2F;S架构即浏览器&#x2F;服务器架构 客户端可以通过统一的应用层协议（HTTP协议）与Web服务器交互数据 URL的标准格式：协议:&#x2F;&#x2F;服务器IP[:端口]&#x2F;路径&#x2F;[?查询] HTTP遵循请求和应答模型 1）请求： eg：POST &#x2F;login.php HTTP&#x2F;1.1          &#x2F;&#x2F;请求行 HOST:www.xxser.com                         &#x2F;&#x2F;请求头 Use">
+  <meta name="description" content="设计一个函数输出两数中较大的那个 #include &lt;stdio.h&gt; int main(){ ​    int max(int a,int b);&#x2F;&#x2F;函数声明 ​    int a,b,maxnum; ​    scanf(“%d%d”,&amp;a,&amp;b); ​    maxnum&#x3D;max(a,b);&#x2F;&#x2F;函数调用 ​    printf(“%d”,maxnum);} int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记">
-<meta property="og:url" content="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:title" content="Ccccccc">
+<meta property="og:url" content="http://example.com/2020/12/06/Cccccc/index.html">
 <meta property="og:site_name" content="cll-design">
-<meta property="og:description" content="B&#x2F;S架构即浏览器&#x2F;服务器架构 客户端可以通过统一的应用层协议（HTTP协议）与Web服务器交互数据 URL的标准格式：协议:&#x2F;&#x2F;服务器IP[:端口]&#x2F;路径&#x2F;[?查询] HTTP遵循请求和应答模型 1）请求： eg：POST &#x2F;login.php HTTP&#x2F;1.1          &#x2F;&#x2F;请求行 HOST:www.xxser.com                         &#x2F;&#x2F;请求头 Use">
+<meta property="og:description" content="设计一个函数输出两数中较大的那个 #include &lt;stdio.h&gt; int main(){ ​    int max(int a,int b);&#x2F;&#x2F;函数声明 ​    int a,b,maxnum; ​    scanf(“%d%d”,&amp;a,&amp;b); ​    maxnum&#x3D;max(a,b);&#x2F;&#x2F;函数调用 ​    printf(“%d”,maxnum);} int">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-31T07:56:29.327Z">
-<meta property="article:modified_time" content="2020-10-31T08:14:30.163Z">
+<meta property="article:published_time" content="2020-12-06T14:25:59.605Z">
+<meta property="article:modified_time" content="2020-12-06T14:53:14.826Z">
 <meta property="article:author" content="cll-design">
 <meta name="twitter:card" content="summary">
   
@@ -66,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-基本概念理解" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Cccccc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" class="article-date">
-  <time datetime="2020-10-31T07:56:29.327Z" itemprop="datePublished">2020-10-31</time>
+    <a href="/2020/12/06/Cccccc/" class="article-date">
+  <time datetime="2020-12-06T14:25:59.605Z" itemprop="datePublished">2020-12-06</time>
 </a>
     
   </div>
@@ -80,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      笔记
+      Ccccccc
     </h1>
   
 
@@ -88,23 +88,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>B/S架构即浏览器/服务器架构</p>
-<p>客户端可以通过统一的应用层协议（HTTP协议）与Web服务器交互数据</p>
-<p>URL的标准格式：协议://服务器IP[:端口]/路径/[?查询]</p>
-<p>HTTP遵循请求和应答模型</p>
-<p>1）请求：</p>
-<p>eg：POST /login.php HTTP/1.1          //请求行</p>
-<p>HOST:<a target="_blank" rel="noopener" href="http://www.xxser.com/">www.xxser.com</a>                         //请求头</p>
-<p>User-Agent:Mozilla/5.0 (Windows NT 6.1; rv:15.0)   Gecko/20100101 Firefox/115.0</p>
-<p>​                                                                 //空白行，代表请求头结束</p>
-<p>Username=admin&amp;password=admin  //请求正文</p>
-<p>2）响应</p>
-<p>与HTTP请求对应的是HTTP响应，HTTP响应也由三部分内容组成，分别是相应行、响应头（消息报头）和消息正文（消息主题）。</p>
+        <p>设计一个函数输出两数中较大的那个</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>int main(){</p>
+<p>​    int max(int a,int b);//函数声明</p>
+<p>​    int a,b,maxnum;</p>
+<p>​    scanf(“%d%d”,&amp;a,&amp;b);</p>
+<p>​    maxnum=max(a,b);//函数调用</p>
+<p>​    printf(“%d”,maxnum);<br>}</p>
+<p>int max(inta,int b){</p>
+<p>​    if(a&gt;b)  return a;</p>
+<p>else  return b;</p>
+<p>}</p>
+<p>设计一个函数输出输入两数相加绝对值之和</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int sum(int a,int b);<br>    int a,b,sumnum;<br>    scanf(“%d%d”,&amp;a,&amp;b);<br>    if(a&gt;0) a=0+a;<br>    else a=0-a;<br>    if(b&gt;0) b=0+b;<br>    else b=0-b;<br>    sumnum=sum(a,b);<br>    printf(“%d”,sumnum);<br>}<br>int sum(int a,int b){<br>    int c;<br>    c=a+b;<br>    return (c);<br>}</p>
+<p>求某数的某次幂</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int y(int x,int n);<br>    int x,n,ynum;<br>    scanf(“%d%d”,&amp;x,&amp;n);<br>    ynum=y(x,n);<br>    printf(“%d”,ynum);<br>}<br>int y(int x,int n){<br>    int t=x;<br>    while(n-1) {<br>    t=x*t;<br>    n–;<br>    }<br>    return t;<br>}</p>
+<p>第一组同学10岁之后每+1位+2岁求第n位同学的年龄</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int age(int n);<br>    int n,agenum;<br>    scanf(“%d”,&amp;n);<br>    agenum=age(n);<br>    printf(“%d”,agenum);<br>}<br>int age(int n){<br>    int t;<br>    t=10+(n-1)*2;<br>    return t;<br>}</p>
+<p>让数组值交换</p>
+<p>不要硬用函数</p>
+<p>数组定义位置，函数形参处出很多问题，而且函数不能返回两个值</p>
+<p>1、直接两个循环语句输入数组、一个for内嵌交换值的方法</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int a[10],b[10];<br>    int i,j;<br>    for(i=0;i&lt;10;i++){<br>        scanf(“%d”,&amp;a[i]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        scanf(“%d”,&amp;b[j]);<br>    }<br>    int t=0;<br>    for(i=0;i&lt;10;i++){<br>        t=a[i];<br>        a[i]=b[i];<br>        b[i]=t;<br>    }<br>    for(i=0;i&lt;10;i++){<br>        printf(“%d “,a[i]);<br>    }<br>    printf(“ “);<br>    for(j=0;j&lt;10;j++){<br>        printf(“%d “,b[j]);<br>    }<br>}</p>
+<p>2、可以选择用宏定义</p>
+<p>#include &lt;stdio.h&gt;<br>#define swap(x,y) int t=x;x=y;y=t;<br>int main(){<br>    int a[10],b[10];<br>    int i,j;<br>    for(i=0;i&lt;10;i++){<br>        scanf(“%d”,&amp;a[i]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        scanf(“%d”,&amp;b[j]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        swap(a[j],b[j]);<br>    }<br>    for(i=0;i&lt;10;i++){<br>        printf(“%d “,a[i]);<br>    }<br>    for(j=0;j&lt;10;j++){<br>        printf(“%d “,b[j]);<br>    }<br>}</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/31/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" data-id="ckid9zxop000k4owt0w2sd8q5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/06/Cccccc/" data-id="ckid9zxoh00044owt2f7m7158" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,19 +126,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/02/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E5%91%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/12/06/http------/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          C语言第九周
+          http-----
         
       </div>
     </a>
   
   
-    <a href="/2020/10/27/C%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%85%AB%E5%91%A8/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/29/CCCCC/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C语言第八周</div>
+      <div class="article-nav-title">CCCCC</div>
     </a>
   
 </nav>
